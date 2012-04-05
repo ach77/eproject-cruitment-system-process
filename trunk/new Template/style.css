@@ -166,6 +166,7 @@ li.bg,
 /*.second p:hover{color:#FFF;}
 .second:hover{background-color:#000;color:#FFF;}*/
 .button{background-image:url(images/tableheader.png); color:#FFF;text-decoration:none;padding: 4px 12px 4px 12px;border:hidden}
+.button1{background-image:url(images/tableheader.png); color:#FFF;text-decoration:none;padding: 4px 12px 4px 12px;border:hidden;width:250px}
 .apply-button{background:url(images/apply-button.png) no-repeat; color:transparent;text-decoration:none;padding: 0px;border:hidden; width:32px; height:26px; margin:0 0 0 10px; cursor:pointer}
 .table{ width:99%;margin:2px auto; border: 1px #17C7D0 solid;
 -moz-border-radius-topleft:10px; -moz-border-radius-topright:10px;text-align:left;font-size:18px
