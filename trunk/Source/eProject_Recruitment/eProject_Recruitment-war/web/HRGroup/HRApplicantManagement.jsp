@@ -22,71 +22,92 @@
                 <div class="topi"><div class="clr"></div></div>
                 <div class="body_resize">
                     <div class="product">
-                        <div class="title">Vacancy list
+                        <div class="title">Applicant List
                             <div class="search">
                                 <form>
-                	Search for job:
-                                    <input type="text" name="txtTitle" value="Search by job title"/>
-                                    <select name="cboDepartmet">
-                                        <option>Department</option>
-                                        <option>HR Group</option>
-                                        <option>Marketing</option>
-                                        <option>Business</option>
-                                        <option>IT group</option>
-                                    </select>
+                                    Search value:
+                                    <input type="text" name="txtTitle" value="Search by vacancy"/>
                                     <a href="#" style="color:#E0EFF8;font-size:14px" > ->Search</a>
                                 </form>
                             </div>
                         </div>
                         <br/>
                         <table class="table" cellspacing="0">
-                            <thead>
-                                <tr>
-                                    <th width="7%" style="-moz-border-radius-topleft:10px"></th>
-                                    <th width="24%" scope="col" >Job title</th>
-                                    <th width="15%" scope="col">Department</th>
-                                    <th width="11%" scope="col">Salary</th>
-                                    <th width="7%" scope="col">Slot</th>
-                                    <th width="18%" scope="col">Start Date</th>
-                                    <th width="18%" scope="col" style="-moz-border-radius-topright:10px">End Date</th>
-                                </tr>
-                            </thead>
+                            <tr>
+                                <th width="5%" scope="col"style="-moz-border-radius-topleft:10px">No.</th>
+                                <th width="14%">Applicant ID</th>
+                                <th width="27%" scope="col" >Applicant name</th>
+                                <th width="32%" scope="col">Vacancy</th>
+                                <th width="12%" scope="col">Apply Date</th>
+                                <th width="5%" scope="col"></th>
+                                <th width="5%" scope="col" style="-moz-border-radius-topright:10px"></th>
+                            </tr>
                             <tfoot>
-                            <th colspan="7" align="center"><a href="#">First</a>|<a href="#">Prev</a>|<a href="#">Next</a>|<a href="#">Last</a>
+                            <th colspan="7" style="text-align:right">
+
+                                <a href="#" style="color:#FFF;font-family:Tahoma, Geneva, sans-serif;font-size:12px;text-decoration:underline">First</a>
+                                <a href="#"style="color:#FFF;font-family:Tahoma, Geneva, sans-serif;font-size:12px;text-decoration:underline">Prev</a>
+                                <a href="#"style="color:#FFF;font-family:Tahoma, Geneva, sans-serif;font-size:12px;text-decoration:underline">Next</a>
+                                <a href="#"style="color:#FFF;font-family:Tahoma, Geneva, sans-serif;font-size:12px;text-decoration:underline">Last</a>
+
+                                <div style="float:right;width:300px"><p style="font-family:Tahoma, Geneva, sans-serif;font-size:12px;color:#FFF">Total : 30 items</p></div>
                             </th>
-                            <td width="0%"></tfoot>
-                            <tbody>
-
-                                <tr class="row">
-                                    <td><button name="btnRegister"  class="apply-button" title="Apply this vacancy"/></td>
-                                    <td><a href="#" title="Manufacturing Manager">Manufacturing Manager </a></td>
-                                    <td><p>HR</p> </td>
-                                    <td><p>1,200 - 1,500</p></td>
-                                    <td><p>15</p></td>
-                                    <td><p>19/03/2012</p> </td>
-                                    <td><p>25/03/2012 </p></td>
-                                </tr>
-                                <tr>
-                                    <td><button name="btnRegister"  class="apply-button" title="Apply this vacancy"/></td>
-                                    <td><a href="#" title="Manufacturing Manager">Manufacturing Manager </a></td>
-                                    <td><p>IT</p> </td>
-                                    <td><p>1,200 - 1,500</p></td>
-                                    <td><p>15</p></td>
-                                    <td><p>19/03/2012</p> </td>
-                                    <td><p>25/03/2012 </p></td>
-                                </tr>
-                                <tr class="row">
-                                    <td><button name="btnRegister"  class="apply-button" title="Apply this vacancy"/></td>
-                                    <td><a href="#" title="Manufacturing Manager">Manufacturing Manager </a></td>
-                                    <td><p>HR</p> </td>
-                                    <td><p>1,200 - 1,500</p></td>
-                                    <td><p>15</p></td>
-                                    <td><p>19/03/2012</p> </td>
-                                    <td><p>25/03/2012 </p></td>
-                                </tr>
-                            </tbody>
+                            </tfoot>
+                            <tr>
+                                <td><p>1</p></td>
+                                <td><p>A0001</p></td>
+                                <td><a href="Controller?btnAction=ApplicantResume">Jun F Kennedy</a></td>
+                                <td><p>President of U.S.A</p></td>
+                                <td><p>20/3/2012</p></td>
+                                <td><a href="#">Reject</a></td>
+                                <td><a href="#">Select</a></td>
+                            </tr>
+                            <tr class="row">
+                                <td><p>2</p></td>
+                                <td><p>A0002</p></td>
+                                <td><a href="#">Ha Animal</a></td>
+                                <td><p>Osin</p></td>
+                                <td><p>23/3/2012</p></td>
+                                <td><a href="#">Reject</a> </td>
+                                <td><a href="#">Select</a></td>
+                            </tr>
+                            <tr>
+                                <td><p>3</p></td>
+                                <td><p>A0003</p></td>
+                                <td><a href="#">Tuan T-Dog</a></td>
+                                <td><p>Bodyguard</p></td>
+                                <td><p>24/3/2012</p></td>
+                                <td><a href="#">Reject</a> </td>
+                                <td><a href="#">Select</a></td>
+                            </tr>
+                            <tr class="row">
+                                <td><p>4</p></td>
+                                <td><p>A0004</p></td>
+                                <td><a href="#">Justine Timberlake</a></td>
+                                <td><p>Assitant</p></td>
+                                <td><p>25/3/2012</p></td>
+                                <td><a href="#">Reject</a> </td>
+                                <td><a href="#">Select</a></td>
+                            </tr>
+                            <tr>
+                                <td><p>5</p></td>
+                                <td><p>A0001</p></td>
+                                <td><a href="#">Jun F Kennedy</a></td>
+                                <td><p>Body Guard</p></td>
+                                <td><p>26/3/2012</p></td>
+                                <td><a href="#">Reject</a></td>
+                                <td><a href="#">Select</a></td>
+                            </tr>
+                            <tr class="row">
+                                <td><p>6</p></td>
+                                <td><p>A0002</p></td>
+                                <td><a href="#">Ha Animal</a></td>
+                                <td><p>Bodygard</p></td>
+                                <td><p>27/3/2012</p></td>
+                                <td><a href="#">Reject</a> </td>
+                                <td><a href="#">Select</a></td>
+                            </tr>
                         </table>
-
                     </div>
                 </div>
                 <jsp:include page="../footer.jsp"/>
