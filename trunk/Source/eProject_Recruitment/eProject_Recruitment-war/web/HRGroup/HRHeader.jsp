@@ -46,12 +46,10 @@
         <div class="clr"></div>
         <div id="menu">
             <ul>
-                <li><a href="index.html" class="active">Vacancies</a>
-                </li>
-                <li><a href="#">Recruitment</a>
+                <li><a href="#" class="active">Recruitment</a>
                     <ul>
-                        <li><a href="#" >Vacancy Management</a></li>
-                        <li><a href="#" >Applicant Management</a></li>
+                        <li><a href="Controller?btnAction=VacancyManagement" >Vacancy Management</a></li>
+                        <li><a href="Controller?btnAction=ApplicantManagement" >Applicant Management</a></li>
                         <li><a href="Controller?btnAction=InterviewManagement" >Interview Management</a></li>
                     </ul>
                 </li>

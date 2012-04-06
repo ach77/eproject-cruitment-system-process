@@ -47,6 +47,12 @@ public class Controller extends HttpServlet {
             } else if (action.equals("InterviewManagement")) {
                 RequestDispatcher rd = request.getRequestDispatcher("HRGroup/HRInterviewManagement.jsp");
                 rd.forward(request, response);
+            }else if (action.equals("VacancyManagement")) {
+                RequestDispatcher rd = request.getRequestDispatcher("HRGroup/HRVacancyManagement.jsp");
+                rd.forward(request, response);
+            }else if (action.equals("ApplicantManagement")) {
+                RequestDispatcher rd = request.getRequestDispatcher("HRGroup/HRApplicantManagement.jsp");
+                rd.forward(request, response);
             } else if (action.equals("ScheduleInterview2")) {
                 RequestDispatcher rd = request.getRequestDispatcher("HRGroup/HRChooseDatetime.jsp");
                 rd.forward(request, response);
@@ -61,6 +67,9 @@ public class Controller extends HttpServlet {
                 rd.forward(request, response);
             }else if (action.equals("Finish")) {
                 RequestDispatcher rd = request.getRequestDispatcher("HRGroup/HRInterviewManagement.jsp");
+                rd.forward(request, response);
+            }else if (action.equals("VacancyDetail")) {
+                RequestDispatcher rd = request.getRequestDispatcher("HRGroup/HRVacancyUpdating.jsp");
                 rd.forward(request, response);
             }
         } finally {
