@@ -2,10 +2,12 @@
 <datasources>
   <local-tx-datasource>
     <jndi-name>RecruitmentJNDI</jndi-name>
-    <connection-url>jdbc:sqlserver://localhost\SQL2005:1433;databaseName=Recruitment</connection-url>
+    <connection-url>
+    jdbc:sqlserver://localhost:2940;instanceName=SQL2005;databaseName=Recruitment
+    </connection-url>
     <driver-class>com.microsoft.sqlserver.jdbc.SQLServerDriver</driver-class>
     <user-name>sa</user-name>
-    <password>123</password>
+    <password>1</password>
     <min-pool-size>5</min-pool-size>
     <max-pool-size>20</max-pool-size>
     <idle-timeout-minutes>5</idle-timeout-minutes>
