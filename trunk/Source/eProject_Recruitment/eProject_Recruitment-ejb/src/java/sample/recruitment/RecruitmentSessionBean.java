@@ -8,6 +8,7 @@ package sample.recruitment;
 import javax.ejb.Stateless;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
+import javax.persistence.Query;
 
 /**
  *
@@ -21,6 +22,8 @@ public class RecruitmentSessionBean implements RecruitmentSessionBeanRemote, Rec
     public void persist(Object object) {
         em.persist(object);
     }
+
+
     
     // Add business logic below. (Right-click in editor and choose
     // "Insert Code > Add Business Method")
