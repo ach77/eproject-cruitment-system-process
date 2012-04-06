@@ -2,7 +2,6 @@
  * To change this template, choose Tools | Templates
  * and open the template in the editor.
  */
-
 package RecruitmentPackage;
 
 import java.io.IOException;
@@ -18,7 +17,7 @@ import javax.servlet.http.HttpServletResponse;
  * @author JunF
  */
 public class Controller extends HttpServlet {
-   
+
     /** 
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code> methods.
      * @param request servlet request
@@ -27,26 +26,32 @@ public class Controller extends HttpServlet {
      * @throws IOException if an I/O error occurs
      */
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
-    throws ServletException, IOException {
+            throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
         PrintWriter out = response.getWriter();
         try {
             String action = request.getParameter("btnAction");
-            if(action.equals("Login")){
+            if (action.equals("Login")) {
                 String user = request.getParameter("txtUsername");
                 String pass = request.getParameter("txtPassword");
-                if(user.equals(pass)){
+                if (user.equals(pass)) {
                     RequestDispatcher rd = request.getRequestDispatcher("HRGroup/HRApplicantManagement.jsp");
                     rd.forward(request, response);
                 }
-            }else if(action.equals("ApplicantResume")){
+            } else if (action.equals("ApplicantResume")) {
                 RequestDispatcher rd = request.getRequestDispatcher("HRGroup/HRApplicantResume.jsp");
-                    rd.forward(request, response);
+                rd.forward(request, response);
+            } else if (action.equals("ScheduleInterview")) {
+                RequestDispatcher rd = request.getRequestDispatcher("HRGroup/HRScheduleInterview.jsp");
+                rd.forward(request, response);
+            }else if(action.equals("InterviewManagement")){
+                RequestDispatcher rd = request.getRequestDispatcher("HRGroup/HRInterviewManagement.jsp");
+                rd.forward(request, response);
             }
-        } finally { 
+        } finally {
             out.close();
         }
-    } 
+    }
 
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">
     /** 
@@ -58,9 +63,9 @@ public class Controller extends HttpServlet {
      */
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
-    throws ServletException, IOException {
+            throws ServletException, IOException {
         processRequest(request, response);
-    } 
+    }
 
     /** 
      * Handles the HTTP <code>POST</code> method.
@@ -71,7 +76,7 @@ public class Controller extends HttpServlet {
      */
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
-    throws ServletException, IOException {
+            throws ServletException, IOException {
         processRequest(request, response);
     }
 
@@ -83,5 +88,4 @@ public class Controller extends HttpServlet {
     public String getServletInfo() {
         return "Short description";
     }// </editor-fold>
-
 }
