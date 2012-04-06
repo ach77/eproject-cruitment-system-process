@@ -39,6 +39,9 @@ public class Controller extends HttpServlet {
                     RequestDispatcher rd = request.getRequestDispatcher("HRGroup/HRApplicantManagement.jsp");
                     rd.forward(request, response);
                 }
+            }else if(action.equals("ApplicantResume")){
+                RequestDispatcher rd = request.getRequestDispatcher("HRGroup/HRApplicantResume.jsp");
+                    rd.forward(request, response);
             }
         } finally { 
             out.close();
