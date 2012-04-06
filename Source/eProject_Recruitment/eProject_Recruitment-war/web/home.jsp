@@ -55,7 +55,6 @@
                             </th>
                             <td width="0%"></tfoot>
                             <tbody>
-
                                 <tr class="row">
                                     <td><button name="btnRegister"  class="apply-button" title="Apply this vacancy"/></td>
                                     <td><a href="#" title="Manufacturing Manager">Manufacturing Manager </a></td>
@@ -85,7 +84,6 @@
                                 </tr>
                             </tbody>
                         </table>
-
                     </div>
                 </div>
                 <jsp:include page="footer.jsp"/>

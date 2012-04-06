@@ -33,6 +33,7 @@ public class TblAccount implements Serializable {
     @Basic(optional = false)
     @Column(name = "Username", nullable = false, length = 5)
     private String username;
+
     @Basic(optional = false)
     @Column(name = "Password", nullable = false, length = 20)
     private String password;
