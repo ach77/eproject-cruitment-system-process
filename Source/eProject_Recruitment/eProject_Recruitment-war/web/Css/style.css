@@ -180,6 +180,7 @@ li.bg,
 .table tr:hover {background-color:#CAE4FF}
 .row {background-color:#EAF4FF}
 .search{float:right;font-size:16px;}
-.resume{margin:0px 50px 0px 200px}
+/*.resume{margin:0px 50px 0px 200px}*/
 .contraint{color:#F00; font-size:9px}
 .linkback{float:right;margin-right:10px}
+.resume{margin-top:7px; margin-left:30px;width:90%}
