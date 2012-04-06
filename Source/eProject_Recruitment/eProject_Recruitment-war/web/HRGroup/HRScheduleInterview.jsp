@@ -64,7 +64,7 @@
                                 <td><p>FMCG </p></td>
                                 <td><p>20</p></td>
                                 <td><p>21/03/2012</p></td>
-                                <td><a href="#">Schedule Interview</a></td>
+                                <td><a href="Controller?btnAction=ScheduleInterview2">Schedule Interview</a></td>
                             </tr>
                             <tr class="row">
                                 <td><p>2</p></td>
@@ -132,7 +132,7 @@
                             </tr>
                         </table>
                         <div style="float:right;margin:5px 10px 20px 10px">
-                            <button class="button" >Cancle</button> </div>
+                            <input type="submit" value="Cancel" name="btnAction" class="button" /> </div>
                     </div>
                 </div>
         <jsp:include page="../footer.jsp"/>
