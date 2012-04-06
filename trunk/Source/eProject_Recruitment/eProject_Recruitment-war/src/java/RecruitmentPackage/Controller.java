@@ -44,7 +44,22 @@ public class Controller extends HttpServlet {
             } else if (action.equals("ScheduleInterview")) {
                 RequestDispatcher rd = request.getRequestDispatcher("HRGroup/HRScheduleInterview.jsp");
                 rd.forward(request, response);
-            }else if(action.equals("InterviewManagement")){
+            } else if (action.equals("InterviewManagement")) {
+                RequestDispatcher rd = request.getRequestDispatcher("HRGroup/HRInterviewManagement.jsp");
+                rd.forward(request, response);
+            } else if (action.equals("ScheduleInterview2")) {
+                RequestDispatcher rd = request.getRequestDispatcher("HRGroup/HRChooseDatetime.jsp");
+                rd.forward(request, response);
+            } else if (action.equals("Choose")) {
+                RequestDispatcher rd = request.getRequestDispatcher("HRGroup/HRSelectApplicant.jsp");
+                rd.forward(request, response);
+            }else if (action.equals("Schedule Interview")) {
+                RequestDispatcher rd = request.getRequestDispatcher("HRGroup/HRSelectInterviewer.jsp");
+                rd.forward(request, response);
+            }else if (action.equals("SelectInterviewer")) {
+                RequestDispatcher rd = request.getRequestDispatcher("HRGroup/HRPreview.jsp");
+                rd.forward(request, response);
+            }else if (action.equals("Finish")) {
                 RequestDispatcher rd = request.getRequestDispatcher("HRGroup/HRInterviewManagement.jsp");
                 rd.forward(request, response);
             }
