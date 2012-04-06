@@ -48,10 +48,14 @@
             <ul>
                 <li><a href="index.html" class="active">Vacancies</a>
                 </li>
-                <li><a href="#"><span>Register</span></a></li>
-                <li><a href="#">Contact us</a></li>
-                <li><a href="#">About us</a>
+                <li><a href="#">Recruitment</a>
+                    <ul>
+                        <li><a href="#" >Vacancy Management</a></li>
+                        <li><a href="#" >Applicant Management</a></li>
+                        <li><a href="#" >Interview Management</a></li>
+                    </ul>
                 </li>
+                <li><a href="#">Report</a> </li>
             </ul>
         </div>
         <div class="clr"></div>
