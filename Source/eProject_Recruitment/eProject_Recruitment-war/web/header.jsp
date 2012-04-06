@@ -29,7 +29,7 @@
     #prevBtn a { display:block; width:13px; height:28px; background:url(images/l_arrow.png) no-repeat 0 0; }
     #nextBtn a { display:block; width:13px; height:28px; background:url(images/r_arrow.png) no-repeat 0 0; }
 </style>
-
+<%@taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <div class="header">
     <div class="block_header">
         <div class="logo"><a href="index.html"><img src="images/logo.jpg" width="293" height="112" border="0" alt="logo" /></a></div>
@@ -41,8 +41,7 @@
                         <td> <input type="text" name="txtUsername" style="width:100px"/> </td>
                         <td>Password</td>
                         <td><input type="password" name="txtPassword" style="width:100px"/></td>
-                        <td> </td>
-                        <td> <a  class="button" href="Controller?btnAction=Login">Login</a> <a href="#">Register ?</a> </td>
+                        <td> <input type="submit" value="Login" name="btnAction" class="button" /> <a href="#">Register ?</a> </td>
                     </tr>
                 </table>
             </form>
