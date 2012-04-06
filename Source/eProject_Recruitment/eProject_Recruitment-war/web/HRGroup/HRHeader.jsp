@@ -52,7 +52,7 @@
                     <ul>
                         <li><a href="#" >Vacancy Management</a></li>
                         <li><a href="#" >Applicant Management</a></li>
-                        <li><a href="#" >Interview Management</a></li>
+                        <li><a href="Controller?btnAction=InterviewManagement" >Interview Management</a></li>
                     </ul>
                 </li>
                 <li><a href="#">Report</a> </li>
