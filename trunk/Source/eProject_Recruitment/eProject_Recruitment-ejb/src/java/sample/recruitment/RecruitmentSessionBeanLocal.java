@@ -14,7 +14,7 @@ import javax.ejb.Local;
 @Local
 public interface RecruitmentSessionBeanLocal {
 
-    boolean checkLogin(String username, String password);
+    int checkLogin(String username, String password);
 
  
 

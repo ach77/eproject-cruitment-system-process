@@ -17,6 +17,7 @@ import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 import sample.recruitment.RecruitmentSessionBean;
 import sample.recruitment.RecruitmentSessionBeanRemote;
 
@@ -52,11 +53,16 @@ public class Controller extends HttpServlet {
                 RecruitmentSessionBeanRemote remote =
                         (RecruitmentSessionBeanRemote) PortableRemoteObject.narrow(obj,
                         RecruitmentSessionBeanRemote.class);
-                boolean rs = remote.checkLogin(user, pass);
-                if (rs) {
-                    url= interviewerPage;
+                int rs = remote.checkLogin(user, pass);
+                if (rs == 3) {
+                    url = interviewerPage;
+                    HttpSession session = request.getSession();
+                    session.setAttribute("INFO", user);
+                    /*
+                     *  code lấy history
+                     */
                 }
-                RequestDispatcher rd = request.getRequestDispatcher("HRGroup/HRApplicantManagement.jsp");
+                RequestDispatcher rd = request.getRequestDispatcher(url);
                 rd.forward(request, response);
             } else if (action.equals("ApplicantResume")) {
                 RequestDispatcher rd = request.getRequestDispatcher("HRGroup/HRApplicantResume.jsp");

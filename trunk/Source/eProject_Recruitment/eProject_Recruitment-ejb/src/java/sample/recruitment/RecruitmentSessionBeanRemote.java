@@ -14,7 +14,7 @@ import javax.ejb.Remote;
 @Remote
 public interface RecruitmentSessionBeanRemote {
 
-    boolean checkLogin(String username, String password);
+    int checkLogin(String username, String password);
 
 
     
