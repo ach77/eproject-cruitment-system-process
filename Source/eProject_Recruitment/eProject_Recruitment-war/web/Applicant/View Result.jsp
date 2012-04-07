@@ -10,8 +10,9 @@
 
 <html>
     <head>
-        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <title>JSP Page</title>
+       <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+        <title>Recruitment Process System</title>
+        <link href="Css/style.css" rel="stylesheet" type="text/css" />
     </head>
     <body>
         <div class="product">

@@ -14,6 +14,7 @@
             continuous: true
         });
     });
+
 </script>
 <style type="text/css">
     #slider { margin:0; padding:0; list-style:none; }
