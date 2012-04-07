@@ -28,7 +28,7 @@ import sample.recruitment.RecruitmentSessionBeanRemote;
 public class Controller extends HttpServlet {
 
     private String indexPage = "index.jsp";
-    private String interviewerPage = "viewHistory.jsp";
+    private String interviewerPage = "historyInterviewer.jsp";
     private String invalidPage = "invalid.jsp";
 
     /** 
