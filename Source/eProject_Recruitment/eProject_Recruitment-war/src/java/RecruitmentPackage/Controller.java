@@ -6,17 +6,29 @@ package RecruitmentPackage;
 
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+import javax.naming.Context;
+import javax.naming.InitialContext;
+import javax.naming.NamingException;
+import javax.rmi.PortableRemoteObject;
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import sample.recruitment.RecruitmentSessionBean;
+import sample.recruitment.RecruitmentSessionBeanRemote;
 
 /**
  *
  * @author JunF
  */
 public class Controller extends HttpServlet {
+
+    private String indexPage = "index.jsp";
+    private String interviewerPage = "viewHistory.jsp";
+    private String invalidPage = "invalid.jsp";
 
     /** 
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code> methods.
@@ -34,10 +46,18 @@ public class Controller extends HttpServlet {
             if (action.equals("Login")) {
                 String user = request.getParameter("txtUsername");
                 String pass = request.getParameter("txtPassword");
-                if (user.equals(pass)) {
-                    RequestDispatcher rd = request.getRequestDispatcher("HRGroup/HRApplicantManagement.jsp");
-                    rd.forward(request, response);
+                Context ctx = new InitialContext();
+                Object obj = ctx.lookup("ReJNDI");
+                String url = invalidPage;
+                RecruitmentSessionBeanRemote remote =
+                        (RecruitmentSessionBeanRemote) PortableRemoteObject.narrow(obj,
+                        RecruitmentSessionBeanRemote.class);
+                boolean rs = remote.checkLogin(user, pass);
+                if (rs) {
+                    url= interviewerPage;
                 }
+                RequestDispatcher rd = request.getRequestDispatcher("HRGroup/HRApplicantManagement.jsp");
+                rd.forward(request, response);
             } else if (action.equals("ApplicantResume")) {
                 RequestDispatcher rd = request.getRequestDispatcher("HRGroup/HRApplicantResume.jsp");
                 rd.forward(request, response);
@@ -47,10 +67,10 @@ public class Controller extends HttpServlet {
             } else if (action.equals("InterviewManagement")) {
                 RequestDispatcher rd = request.getRequestDispatcher("HRGroup/HRInterviewManagement.jsp");
                 rd.forward(request, response);
-            }else if (action.equals("VacancyManagement")) {
+            } else if (action.equals("VacancyManagement")) {
                 RequestDispatcher rd = request.getRequestDispatcher("HRGroup/HRVacancyManagement.jsp");
                 rd.forward(request, response);
-            }else if (action.equals("ApplicantManagement")) {
+            } else if (action.equals("ApplicantManagement")) {
                 RequestDispatcher rd = request.getRequestDispatcher("HRGroup/HRApplicantManagement.jsp");
                 rd.forward(request, response);
             } else if (action.equals("ScheduleInterview2")) {
@@ -59,19 +79,23 @@ public class Controller extends HttpServlet {
             } else if (action.equals("Choose")) {
                 RequestDispatcher rd = request.getRequestDispatcher("HRGroup/HRSelectApplicant.jsp");
                 rd.forward(request, response);
-            }else if (action.equals("Schedule Interview")) {
+            } else if (action.equals("Schedule Interview")) {
                 RequestDispatcher rd = request.getRequestDispatcher("HRGroup/HRSelectInterviewer.jsp");
                 rd.forward(request, response);
-            }else if (action.equals("SelectInterviewer")) {
+            } else if (action.equals("SelectInterviewer")) {
                 RequestDispatcher rd = request.getRequestDispatcher("HRGroup/HRPreview.jsp");
                 rd.forward(request, response);
-            }else if (action.equals("Finish")) {
+            } else if (action.equals("Finish")) {
                 RequestDispatcher rd = request.getRequestDispatcher("HRGroup/HRInterviewManagement.jsp");
                 rd.forward(request, response);
-            }else if (action.equals("VacancyDetail")) {
+            } else if (action.equals("VacancyDetail")) {
                 RequestDispatcher rd = request.getRequestDispatcher("HRGroup/HRVacancyUpdating.jsp");
                 rd.forward(request, response);
             }
+        } catch (NamingException ex) {
+            Logger.getLogger(Controller.class.getName()).log(Level.SEVERE, null, ex);
+        } catch (Exception ex) {
+            Logger.getLogger(Controller.class.getName()).log(Level.SEVERE, "Loi Khong biet !", ex);
         } finally {
             out.close();
         }
