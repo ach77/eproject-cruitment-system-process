@@ -24,7 +24,7 @@
                         <div class="title">Vacancy list
                             <div class="search">
                                 <form>
-                	Search for job:
+                	Search for job: ha
                                     <input type="text" name="txtTitle" value="Search by job title"/>
                                     <select name="cboDepartmet">
                                         <option>Department</option>
