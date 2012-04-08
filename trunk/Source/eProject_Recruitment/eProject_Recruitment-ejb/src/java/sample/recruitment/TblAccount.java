@@ -18,22 +18,21 @@ import javax.persistence.Table;
 
 /**
  *
- * @author 6789
+ * @author JunF
  */
 @Entity
 @Table(name = "tblAccount", catalog = "Recruitment", schema = "dbo")
 @NamedQueries({
-    @NamedQuery(name = "TblAccount.findAll", query = "SELECT t FROM TblAccount t")})
-//    @NamedQuery(name = "TblAccount.findByUsername", query = "SELECT t FROM TblAccount t WHERE t.username = :username"),
-//    @NamedQuery(name = "TblAccount.findByPassword", query = "SELECT t FROM TblAccount t WHERE t.password = :password"),
-//    @NamedQuery(name = "TblAccount.findByIsDelete", query = "SELECT t FROM TblAccount t WHERE t.isDelete = :isDelete")})
+    @NamedQuery(name = "TblAccount.findAll", query = "SELECT t FROM TblAccount t"),
+    @NamedQuery(name = "TblAccount.findByUsername", query = "SELECT t FROM TblAccount t WHERE t.username = :username"),
+    @NamedQuery(name = "TblAccount.findByPassword", query = "SELECT t FROM TblAccount t WHERE t.password = :password"),
+    @NamedQuery(name = "TblAccount.findByIsDelete", query = "SELECT t FROM TblAccount t WHERE t.isDelete = :isDelete")})
 public class TblAccount implements Serializable {
     private static final long serialVersionUID = 1L;
     @Id
     @Basic(optional = false)
     @Column(name = "Username", nullable = false, length = 5)
     private String username;
-
     @Basic(optional = false)
     @Column(name = "Password", nullable = false, length = 20)
     private String password;

@@ -5,6 +5,7 @@
 
 package sample.recruitment;
 
+import java.util.List;
 import javax.ejb.Local;
 
 /**
@@ -15,6 +16,8 @@ import javax.ejb.Local;
 public interface RecruitmentSessionBeanLocal {
 
     int checkLogin(String username, String password);
+
+    List getVacancyListHR();
 
  
 

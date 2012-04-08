@@ -18,17 +18,17 @@ import javax.persistence.Table;
 
 /**
  *
- * @author 6789
+ * @author JunF
  */
 @Entity
 @Table(name = "tblResume", catalog = "Recruitment", schema = "dbo")
 @NamedQueries({
-    @NamedQuery(name = "TblResume.findAll", query = "SELECT t FROM TblResume t")})
-//    @NamedQuery(name = "TblResume.findByResumeId", query = "SELECT t FROM TblResume t WHERE t.resumeId = :resumeId"),
-//    @NamedQuery(name = "TblResume.findByDegree", query = "SELECT t FROM TblResume t WHERE t.degree = :degree"),
-//    @NamedQuery(name = "TblResume.findBySkills", query = "SELECT t FROM TblResume t WHERE t.skills = :skills"),
-//    @NamedQuery(name = "TblResume.findByExperience", query = "SELECT t FROM TblResume t WHERE t.experience = :experience"),
-//    @NamedQuery(name = "TblResume.findByOthers", query = "SELECT t FROM TblResume t WHERE t.others = :others")})
+    @NamedQuery(name = "TblResume.findAll", query = "SELECT t FROM TblResume t"),
+    @NamedQuery(name = "TblResume.findByResumeId", query = "SELECT t FROM TblResume t WHERE t.resumeId = :resumeId"),
+    @NamedQuery(name = "TblResume.findByDegree", query = "SELECT t FROM TblResume t WHERE t.degree = :degree"),
+    @NamedQuery(name = "TblResume.findBySkills", query = "SELECT t FROM TblResume t WHERE t.skills = :skills"),
+    @NamedQuery(name = "TblResume.findByExperience", query = "SELECT t FROM TblResume t WHERE t.experience = :experience"),
+    @NamedQuery(name = "TblResume.findByOthers", query = "SELECT t FROM TblResume t WHERE t.others = :others")})
 public class TblResume implements Serializable {
     private static final long serialVersionUID = 1L;
     @Id

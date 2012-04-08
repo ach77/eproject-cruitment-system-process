@@ -18,15 +18,15 @@ import javax.persistence.Table;
 
 /**
  *
- * @author 6789
+ * @author JunF
  */
 @Entity
 @Table(name = "tblDepartment", catalog = "Recruitment", schema = "dbo")
 @NamedQueries({
-    @NamedQuery(name = "TblDepartment.findAll", query = "SELECT t FROM TblDepartment t")})
-//    @NamedQuery(name = "TblDepartment.findByDepartmentId", query = "SELECT t FROM TblDepartment t WHERE t.departmentId = :departmentId"),
-//    @NamedQuery(name = "TblDepartment.findByDerpartmentname", query = "SELECT t FROM TblDepartment t WHERE t.derpartmentname = :derpartmentname"),
-//    @NamedQuery(name = "TblDepartment.findByDescription", query = "SELECT t FROM TblDepartment t WHERE t.description = :description")})
+    @NamedQuery(name = "TblDepartment.findAll", query = "SELECT t FROM TblDepartment t"),
+    @NamedQuery(name = "TblDepartment.findByDepartmentId", query = "SELECT t FROM TblDepartment t WHERE t.departmentId = :departmentId"),
+    @NamedQuery(name = "TblDepartment.findByDerpartmentname", query = "SELECT t FROM TblDepartment t WHERE t.derpartmentname = :derpartmentname"),
+    @NamedQuery(name = "TblDepartment.findByDescription", query = "SELECT t FROM TblDepartment t WHERE t.description = :description")})
 public class TblDepartment implements Serializable {
     private static final long serialVersionUID = 1L;
     @Id
