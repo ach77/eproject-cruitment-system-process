@@ -22,17 +22,17 @@ import javax.persistence.UniqueConstraint;
 
 /**
  *
- * @author 6789
+ * @author JunF
  */
 @Entity
 @Table(name = "tblApplicantVacancy", catalog = "Recruitment", schema = "dbo", uniqueConstraints = {
     @UniqueConstraint(columnNames = {"Applicant", "Resume"})})
 @NamedQueries({
-    @NamedQuery(name = "TblApplicantVacancy.findAll", query = "SELECT t FROM TblApplicantVacancy t")})
-//    @NamedQuery(name = "TblApplicantVacancy.findById", query = "SELECT t FROM TblApplicantVacancy t WHERE t.id = :id"),
-//    @NamedQuery(name = "TblApplicantVacancy.findByApplieddate", query = "SELECT t FROM TblApplicantVacancy t WHERE t.applieddate = :applieddate"),
-//    @NamedQuery(name = "TblApplicantVacancy.findByIsDelete", query = "SELECT t FROM TblApplicantVacancy t WHERE t.isDelete = :isDelete"),
-//    @NamedQuery(name = "TblApplicantVacancy.findByState", query = "SELECT t FROM TblApplicantVacancy t WHERE t.state = :state")})
+    @NamedQuery(name = "TblApplicantVacancy.findAll", query = "SELECT t FROM TblApplicantVacancy t"),
+    @NamedQuery(name = "TblApplicantVacancy.findById", query = "SELECT t FROM TblApplicantVacancy t WHERE t.id = :id"),
+    @NamedQuery(name = "TblApplicantVacancy.findByApplieddate", query = "SELECT t FROM TblApplicantVacancy t WHERE t.applieddate = :applieddate"),
+    @NamedQuery(name = "TblApplicantVacancy.findByIsDelete", query = "SELECT t FROM TblApplicantVacancy t WHERE t.isDelete = :isDelete"),
+    @NamedQuery(name = "TblApplicantVacancy.findByState", query = "SELECT t FROM TblApplicantVacancy t WHERE t.state = :state")})
 public class TblApplicantVacancy implements Serializable {
     private static final long serialVersionUID = 1L;
     @Id

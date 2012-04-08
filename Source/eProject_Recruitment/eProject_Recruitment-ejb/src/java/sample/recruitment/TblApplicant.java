@@ -23,21 +23,21 @@ import javax.persistence.TemporalType;
 
 /**
  *
- * @author 6789
+ * @author JunF
  */
 @Entity
 @Table(name = "tblApplicant", catalog = "Recruitment", schema = "dbo")
 @NamedQueries({
-    @NamedQuery(name = "TblApplicant.findAll", query = "SELECT t FROM TblApplicant t")})
-//    @NamedQuery(name = "TblApplicant.findByApplicantId", query = "SELECT t FROM TblApplicant t WHERE t.applicantId = :applicantId"),
-//    @NamedQuery(name = "TblApplicant.findByFullname", query = "SELECT t FROM TblApplicant t WHERE t.fullname = :fullname"),
-//    @NamedQuery(name = "TblApplicant.findByDateofBirth", query = "SELECT t FROM TblApplicant t WHERE t.dateofBirth = :dateofBirth"),
-//    @NamedQuery(name = "TblApplicant.findByGender", query = "SELECT t FROM TblApplicant t WHERE t.gender = :gender"),
-//    @NamedQuery(name = "TblApplicant.findByAddress", query = "SELECT t FROM TblApplicant t WHERE t.address = :address"),
-//    @NamedQuery(name = "TblApplicant.findByPhone", query = "SELECT t FROM TblApplicant t WHERE t.phone = :phone"),
-//    @NamedQuery(name = "TblApplicant.findByEmail", query = "SELECT t FROM TblApplicant t WHERE t.email = :email"),
-//    @NamedQuery(name = "TblApplicant.findByStatus", query = "SELECT t FROM TblApplicant t WHERE t.status = :status"),
-//    @NamedQuery(name = "TblApplicant.findByIsDelete", query = "SELECT t FROM TblApplicant t WHERE t.isDelete = :isDelete")})
+    @NamedQuery(name = "TblApplicant.findAll", query = "SELECT t FROM TblApplicant t"),
+    @NamedQuery(name = "TblApplicant.findByApplicantId", query = "SELECT t FROM TblApplicant t WHERE t.applicantId = :applicantId"),
+    @NamedQuery(name = "TblApplicant.findByFullname", query = "SELECT t FROM TblApplicant t WHERE t.fullname = :fullname"),
+    @NamedQuery(name = "TblApplicant.findByDateofBirth", query = "SELECT t FROM TblApplicant t WHERE t.dateofBirth = :dateofBirth"),
+    @NamedQuery(name = "TblApplicant.findByGender", query = "SELECT t FROM TblApplicant t WHERE t.gender = :gender"),
+    @NamedQuery(name = "TblApplicant.findByAddress", query = "SELECT t FROM TblApplicant t WHERE t.address = :address"),
+    @NamedQuery(name = "TblApplicant.findByPhone", query = "SELECT t FROM TblApplicant t WHERE t.phone = :phone"),
+    @NamedQuery(name = "TblApplicant.findByEmail", query = "SELECT t FROM TblApplicant t WHERE t.email = :email"),
+    @NamedQuery(name = "TblApplicant.findByStatus", query = "SELECT t FROM TblApplicant t WHERE t.status = :status"),
+    @NamedQuery(name = "TblApplicant.findByIsDelete", query = "SELECT t FROM TblApplicant t WHERE t.isDelete = :isDelete")})
 public class TblApplicant implements Serializable {
     private static final long serialVersionUID = 1L;
     @Id

@@ -23,16 +23,17 @@ import javax.persistence.UniqueConstraint;
 
 /**
  *
- * @author 6789
+ * @author JunF
  */
 @Entity
 @Table(name = "tblSchedule", catalog = "Recruitment", schema = "dbo", uniqueConstraints = {
     @UniqueConstraint(columnNames = {"Executiondate"})})
 @NamedQueries({
-    @NamedQuery(name = "TblSchedule.findAll", query = "SELECT t FROM TblSchedule t")})
-//    @NamedQuery(name = "TblSchedule.findByVacancy", query = "SELECT t FROM TblSchedule t WHERE t.vacancy = :vacancy"),
-//    @NamedQuery(name = "TblSchedule.findByExecutiondate", query = "SELECT t FROM TblSchedule t WHERE t.executiondate = :executiondate"),
-//    @NamedQuery(name = "TblSchedule.findByIsDelete", query = "SELECT t FROM TblSchedule t WHERE t.isDelete = :isDelete")})
+    @NamedQuery(name = "TblSchedule.findAll", query = "SELECT t FROM TblSchedule t"),
+    @NamedQuery(name = "TblSchedule.findByVacancy", query = "SELECT t FROM TblSchedule t WHERE t.vacancy = :vacancy"),
+    @NamedQuery(name = "TblSchedule.findByExecutiondate", query = "SELECT t FROM TblSchedule t WHERE t.executiondate = :executiondate"),
+    @NamedQuery(name = "TblSchedule.findByIsChange", query = "SELECT t FROM TblSchedule t WHERE t.isChange = :isChange"),
+    @NamedQuery(name = "TblSchedule.findByIsDelete", query = "SELECT t FROM TblSchedule t WHERE t.isDelete = :isDelete")})
 public class TblSchedule implements Serializable {
     private static final long serialVersionUID = 1L;
     @Id
@@ -42,6 +43,8 @@ public class TblSchedule implements Serializable {
     @Column(name = "Executiondate")
     @Temporal(TemporalType.TIMESTAMP)
     private Date executiondate;
+    @Column(name = "isChange")
+    private Boolean isChange;
     @Column(name = "isDelete")
     private Boolean isDelete;
     @JoinColumn(name = "Vacancy", referencedColumnName = "VacancyId", nullable = false, insertable = false, updatable = false)
@@ -72,6 +75,14 @@ public class TblSchedule implements Serializable {
 
     public void setExecutiondate(Date executiondate) {
         this.executiondate = executiondate;
+    }
+
+    public Boolean getIsChange() {
+        return isChange;
+    }
+
+    public void setIsChange(Boolean isChange) {
+        this.isChange = isChange;
     }
 
     public Boolean getIsDelete() {

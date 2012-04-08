@@ -25,22 +25,22 @@ import javax.persistence.TemporalType;
 
 /**
  *
- * @author 6789
+ * @author JunF
  */
 @Entity
 @Table(name = "tblVacancy", catalog = "Recruitment", schema = "dbo")
 @NamedQueries({
-    @NamedQuery(name = "TblVacancy.findAll", query = "SELECT t FROM TblVacancy t")})
-//    @NamedQuery(name = "TblVacancy.findByVacancyId", query = "SELECT t FROM TblVacancy t WHERE t.vacancyId = :vacancyId"),
-//    @NamedQuery(name = "TblVacancy.findByTitle", query = "SELECT t FROM TblVacancy t WHERE t.title = :title"),
-//    @NamedQuery(name = "TblVacancy.findByRequirement", query = "SELECT t FROM TblVacancy t WHERE t.requirement = :requirement"),
-//    @NamedQuery(name = "TblVacancy.findByDescription", query = "SELECT t FROM TblVacancy t WHERE t.description = :description"),
-//    @NamedQuery(name = "TblVacancy.findBySalary", query = "SELECT t FROM TblVacancy t WHERE t.salary = :salary"),
-//    @NamedQuery(name = "TblVacancy.findBySlot", query = "SELECT t FROM TblVacancy t WHERE t.slot = :slot"),
-//    @NamedQuery(name = "TblVacancy.findByStartdate", query = "SELECT t FROM TblVacancy t WHERE t.startdate = :startdate"),
-//    @NamedQuery(name = "TblVacancy.findByEnddate", query = "SELECT t FROM TblVacancy t WHERE t.enddate = :enddate"),
-//    @NamedQuery(name = "TblVacancy.findByStatus", query = "SELECT t FROM TblVacancy t WHERE t.status = :status"),
-//    @NamedQuery(name = "TblVacancy.findByIsDelete", query = "SELECT t FROM TblVacancy t WHERE t.isDelete = :isDelete")})
+    @NamedQuery(name = "TblVacancy.findAll", query = "SELECT t FROM TblVacancy t"),
+    @NamedQuery(name = "TblVacancy.findByVacancyId", query = "SELECT t FROM TblVacancy t WHERE t.vacancyId = :vacancyId"),
+    @NamedQuery(name = "TblVacancy.findByTitle", query = "SELECT t FROM TblVacancy t WHERE t.title = :title"),
+    @NamedQuery(name = "TblVacancy.findByRequirement", query = "SELECT t FROM TblVacancy t WHERE t.requirement = :requirement"),
+    @NamedQuery(name = "TblVacancy.findByDescription", query = "SELECT t FROM TblVacancy t WHERE t.description = :description"),
+    @NamedQuery(name = "TblVacancy.findBySalary", query = "SELECT t FROM TblVacancy t WHERE t.salary = :salary"),
+    @NamedQuery(name = "TblVacancy.findBySlot", query = "SELECT t FROM TblVacancy t WHERE t.slot = :slot"),
+    @NamedQuery(name = "TblVacancy.findByStartdate", query = "SELECT t FROM TblVacancy t WHERE t.startdate = :startdate"),
+    @NamedQuery(name = "TblVacancy.findByEnddate", query = "SELECT t FROM TblVacancy t WHERE t.enddate = :enddate"),
+    @NamedQuery(name = "TblVacancy.findByStatus", query = "SELECT t FROM TblVacancy t WHERE t.status = :status"),
+    @NamedQuery(name = "TblVacancy.findByIsDelete", query = "SELECT t FROM TblVacancy t WHERE t.isDelete = :isDelete")})
 public class TblVacancy implements Serializable {
     private static final long serialVersionUID = 1L;
     @Id

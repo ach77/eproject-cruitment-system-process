@@ -5,6 +5,7 @@
 
 package sample.recruitment;
 
+import java.util.List;
 import javax.ejb.Remote;
 
 /**
@@ -15,6 +16,8 @@ import javax.ejb.Remote;
 public interface RecruitmentSessionBeanRemote {
 
     int checkLogin(String username, String password);
+
+    List getVacancyListHR();
 
 
     

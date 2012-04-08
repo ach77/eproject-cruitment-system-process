@@ -55,6 +55,12 @@ public class RecruitmentSessionBean implements RecruitmentSessionBeanRemote, Rec
             return 3;
         }
     }
+
+    public List getVacancyListHR() {
+        Query query = em.createNativeQuery("{call sp_HRGetVacancyList}",sample.recruitment.TblVacancy.class);
+        List result = query.getResultList();
+        return result;
+    }
     // Add business logic below. (Right-click in editor and choose
     // "Insert Code > Add Business Method")
 }
