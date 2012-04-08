@@ -13,6 +13,20 @@
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+        <link href="<%=request.getContextPath()%>/Css/style.css" rel="stylesheet" type="text/css" />
+        <script type="text/javascript" src="<%=request.getContextPath()%>/Js/jquery.js"></script>
+        <script type="text/javascript" src="<%=request.getContextPath()%>/Js/easySlider1.5.js"></script>
+        <script type="text/javascript" src="<%=request.getContextPath()%>/Js/popup.js"></script>
+        <script type="text/javascript" charset="utf-8">
+            $(document).ready(function(){
+                $("#slider").easySlider({
+                    controlsBefore:	'<p id="controls">',
+                    controlsAfter:	'</p>',
+                    auto: true,
+                    continuous: true
+                });
+            });
+        </script>
         <title>Recruitment Process System</title>
     </head>
     <body>
@@ -49,14 +63,26 @@
                                         <c:forEach var="vacancy" items="${vacancies}" >
                                             <c:set var="count" value="${count+1}"/>
                                             <pg:item>
-                                                <tr>
-                                                    <td><p>${count}</p></td>
-                                                    <td> <a href="Controller?btnAction=VacancyDetail">${vacancy.title}</a></td>
-                                                    <td><p>${vacancy.tblDepartment.description}</p> </td>
-                                                    <td><p>${vacancy.salary}</p></td>
-                                                    <td><p>${vacancy.slot}</p></td>
-                                                    <td><p>${vacancy.enddate}</p></td>
-                                                </tr>
+                                                <c:if test="${count%2==0}">
+                                                    <tr>
+                                                        <td><p>${count}</p></td>
+                                                        <td> <a href="Controller?btnAction=VacancyDetail">${vacancy.title}</a></td>
+                                                        <td><p>${vacancy.tblDepartment.description}</p> </td>
+                                                        <td><p>${vacancy.salary}</p></td>
+                                                        <td><p>${vacancy.slot}</p></td>
+                                                        <td><p>${vacancy.enddate}</p></td>
+                                                    </tr>
+                                                </c:if>
+                                                <c:if test="${count%2!=0}">
+                                                    <tr class="row">
+                                                        <td><p>${count}</p></td>
+                                                        <td> <a href="Controller?btnAction=VacancyDetail">${vacancy.title}</a></td>
+                                                        <td><p>${vacancy.tblDepartment.description}</p> </td>
+                                                        <td><p>${vacancy.salary}</p></td>
+                                                        <td><p>${vacancy.slot}</p></td>
+                                                        <td><p>${vacancy.enddate}</p></td>
+                                                    </tr>
+                                                </c:if>
                                             </pg:item>
                                         </c:forEach>
                                 </table>
@@ -67,7 +93,7 @@
                                         %>&nbsp;<%                            }
                                                     if (pageNumber == currentPageNumber) {
                                         %><b><%= pageNumber%></b><%
-                                                                                            } else {
+                                                                            } else {
                                         %><a href="<%= pageUrl%>"><%= pageNumber%></a><%
                                                     }
                                         %>

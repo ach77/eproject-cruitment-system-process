@@ -1,10 +1,10 @@
 
 <title>Recruitment Process System</title>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
-<link href="Css/style.css" rel="stylesheet" type="text/css" />
-<script type="text/javascript" src="Js/jquery.js"></script>
-<script type="text/javascript" src="Js/easySlider1.5.js"></script>
-<script type="text/javascript" src="Js/popup.js"></script>
+<link href="<%=request.getContextPath()%>/Css/style.css" rel="stylesheet" type="text/css" />
+<script type="text/javascript" src="<%=request.getContextPath()%>/Js/jquery.js"></script>
+<script type="text/javascript" src="<%=request.getContextPath()%>/Js/easySlider1.5.js"></script>
+<script type="text/javascript" src="<%=request.getContextPath()%>/Js/popup.js"></script>
 <script type="text/javascript" charset="utf-8">
     $(document).ready(function(){
         $("#slider").easySlider({
@@ -18,7 +18,7 @@
 
 <div class="header">
     <div class="block_header">
-        <div class="logo"><a href="index.html"><img src="images/logo.jpg" width="293" height="112" border="0" alt="logo" /></a></div>
+        <div class="logo"><a href="index.html"><img src="<%=request.getContextPath()%>/images/logo.jpg" width="293" height="112" border="0" alt="logo" /></a></div>
         <div class="signin">
             <form>
                 <table style="font-size: 12px">
@@ -52,7 +52,7 @@
             <ul>
                 <li>
                     <div>
-                        <p class="img"><img src="images/source.jpg" alt="screen 1" width="420" height="234" /></p>
+                        <p class="img"><img src="<%=request.getContextPath()%>/images/source.jpg" alt="screen 1" width="420" height="234" /></p>
                         <h2>Source</h2>
                         <p>
                         <p>Collect resumes from your site and job boards like Simply Hired, Indeed and Juju</p><br />
@@ -66,7 +66,7 @@
                 </li>
                 <li>
                     <div>
-                        <p class="img"><img src="images/engage.jpg" alt="screen 2" width="420" height="234" /></p>
+                        <p class="img"><img src="<%=request.getContextPath()%>/images/engage.jpg" alt="screen 2" width="420" height="234" /></p>
                         <h2>Engage</h2>
                         <p>
                         <p>Reach large number of appplicants with just one click</p><br />
@@ -78,7 +78,7 @@
                 </li>
                 <li>
                     <div>
-                        <p class="img"><img src="images/manage.jpg" alt="screen 3" width="420" height="234" /></p>
+                        <p class="img"><img src="<%=request.getContextPath()%>/images/manage.jpg" alt="screen 3" width="420" height="234" /></p>
                         <h2>Manage</h2>
                         <p>
                         <p>Search candidates quickly</p><br />
@@ -90,7 +90,7 @@
                 </li>
                 <li>
                     <div>
-                        <p class="img"><img src="images/integration.jpg" alt="screen 4" width="420" height="234" /></p>
+                        <p class="img"><img src="<%=request.getContextPath()%>/images/integration.jpg" alt="screen 4" width="420" height="234" /></p>
                         <h2>Integrations</h2>
                         <p>
                         <p>Get Clients and Contacts from Google Apps and Zoho CRM</p><br />
