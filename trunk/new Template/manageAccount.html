@@ -15,6 +15,28 @@ $(document).ready(function(){
 		continuous: true
 	});	
 });
+	function daysInMonth(cbxMonth,cbxYear) {
+		var dd = new Date(year, month, 0);
+		return dd.getDate();}
+	function setDayDrop(dyear, dmonth, dday) {
+		var year = dyear.options[dyear.selectedIndex].value;
+		var month = dmonth.options[dmonth.selectedIndex].value;
+		var day = dday.options[dday.selectedIndex].value;
+		if (day == ' ') {
+		var days = (year == ' ' || month == ' ')
+			? 31 : daysInMonth(month,year);
+		dday.options.length = 0;
+		dday.options[dday.options.length] = new Option(' ',' ');
+		for (var i = 1; i <= days; i++)
+		dday.options[dday.options.length] = new Option(i,i);}}
+		
+	function setDay() {
+		var year = document.getElementById('year');
+		var month = document.getElementById('month');
+		var day = document.getElementById('day');
+		setDayDrop(year,month,day);}				
+		document.getElementById('year').onchange = setDay;
+		document.getElementById('month').onchange = setDay;
 </script>
 <style type="text/css">
 #slider { margin:0; padding:0; list-style:none; }
@@ -129,17 +151,10 @@ p#controls { margin:0; position:relative; }
     <div class="body_resize">     
   <div class="product">
             <div class="title">Manage Account</div>
-       <!-- <div class="mini-product">
-                <div class="product-info">
-                    <div class="product-title">Ban nha gap</div>
-                    <div class="product-content">Ban nha mat tien.So nha 57/57 ,KP2,P.Linh Chieu,Q.ThuDuc,TP.HCM</div>
-                    <div class="product-contact">Lien he anh Jun.SDT 01202540043</div>
-                </div>
-            </div>-->
-            
         <br/>
         
         <div class="resume">
+     
         	<form>
             	<table width="600px">
                 	<tr>
@@ -158,9 +173,33 @@ p#controls { margin:0; position:relative; }
                     </tr>
                     <tr>
                     	<td>Date of Birth <span class="contraint">*</span></td>
-                        <td>Day :<select name="">
-                        <option selected="selected">19</option>
-                        </select>-Month:<select name=""><option>01</option></select>-Year:<select name=""><option>1990</option></select>
+                        <td>Day :<select name="cbxDay" id="day">					
+                        <option selected="selected">--</option>
+						<option>01</option><option>02</option><option>03</option><option>04</option><option>05</option><option>06</option>
+						<option>07</option><option>08</option><option>09</option><option>10</option><option>11</option><option>12</option>
+						<option>13</option><option>14</option><option>15</option><option>16</option><option>17</option><option>18</option>
+						<option>19</option><option>20</option><option>21</option><option>22</option><option>23</option><option>24</option>
+                        <option>25</option><option>26</option><option>27</option><option>28</option><option>29</option><option>30</option>
+                        <option>31</option>
+                        </select>
+                        -Month:<select name="cbxMonth" id="month">
+						<option>--</option>
+                        <option>01</option>
+						<option>02</option>
+						<option>03</option>
+						<option>04</option>
+						<option>05</option>
+						<option>06</option>
+						<option>07</option>
+						<option>08</option>
+						<option>09</option>
+						<option>10</option>
+						<option>11</option>
+						<option>12</option>
+                        </select>
+                        -Year:<select name="cbxYear" id="year">
+                        <option>----</option><option>1990</option><option>1989</option><option>1988</option>
+                        </select>
                       </td>
                     </tr>
                     <tr>
@@ -192,6 +231,7 @@ p#controls { margin:0; position:relative; }
                     </tr>
                 </table>
             </form>
+			
         </div>
 
       </div> 
