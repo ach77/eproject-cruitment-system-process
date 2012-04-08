@@ -4,7 +4,7 @@
     Author     : JunF
 --%>
 
-<link href="Css/style.css" rel="stylesheet" type="text/css" />
+<link href="../Css/style.css" rel="stylesheet" type="text/css" />
 <div class="footer">
     <div class="resize">
         <div>
