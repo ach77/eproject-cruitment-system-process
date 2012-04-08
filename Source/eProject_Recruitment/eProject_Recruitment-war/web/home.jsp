@@ -23,17 +23,13 @@
                     <div class="product">
                         <div class="title">Vacancy list
                             <div class="search">
-                                <form>
-                	Search for job: ha
-                                    <input type="text" name="txtTitle" value="Search by job title"/>
-                                    <select name="cboDepartmet">
-                                        <option>Department</option>
-                                        <option>HR Group</option>
-                                        <option>Marketing</option>
-                                        <option>Business</option>
-                                        <option>IT group</option>
+                                <form action="ApplicantController">
+                	Search for job: 
+                                    <input type="text" name="txtTitle" value="enter title"/>
+                                    <select name="cboDepartment">
+                                        <option selected="selected">choose</option>
                                     </select>
-                                    <a href="#" style="color:#E0EFF8;font-size:14px" > ->Search</a>
+                                    <input type="submit" name="action" value="Search"/>
                                 </form>
                             </div>
                         </div>
@@ -63,25 +59,7 @@
                                     <td><p>15</p></td>
                                     <td><p>19/03/2012</p> </td>
                                     <td><p>25/03/2012 </p></td>
-                                </tr>
-                                <tr>
-                                    <td><button name="btnRegister"  class="apply-button" title="Apply this vacancy"/></td>
-                                    <td><a href="#" title="Manufacturing Manager">Manufacturing Manager </a></td>
-                                    <td><p>IT</p> </td>
-                                    <td><p>1,200 - 1,500</p></td>
-                                    <td><p>15</p></td>
-                                    <td><p>19/03/2012</p> </td>
-                                    <td><p>25/03/2012 </p></td>
-                                </tr>
-                                <tr class="row">
-                                    <td><button name="btnRegister"  class="apply-button" title="Apply this vacancy"/></td>
-                                    <td><a href="#" title="Manufacturing Manager">Manufacturing Manager </a></td>
-                                    <td><p>HR</p> </td>
-                                    <td><p>1,200 - 1,500</p></td>
-                                    <td><p>15</p></td>
-                                    <td><p>19/03/2012</p> </td>
-                                    <td><p>25/03/2012 </p></td>
-                                </tr>
+                                </tr>                    
                             </tbody>
                         </table>
                     </div>

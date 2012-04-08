@@ -48,7 +48,6 @@ public class TblResume implements Serializable {
 
     public TblResume() {
     }
-
     public TblResume(String resumeId) {
         this.resumeId = resumeId;
     }

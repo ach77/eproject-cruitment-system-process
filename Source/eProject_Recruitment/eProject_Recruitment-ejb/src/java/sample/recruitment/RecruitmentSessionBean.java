@@ -4,6 +4,7 @@
  */
 package sample.recruitment;
 
+import java.util.Date;
 import java.util.List;
 import javax.ejb.Stateless;
 import javax.persistence.EntityManager;
@@ -57,9 +58,62 @@ public class RecruitmentSessionBean implements RecruitmentSessionBeanRemote, Rec
     }
 
     public List getVacancyListHR() {
-        Query query = em.createNativeQuery("{call sp_HRGetVacancyList}",sample.recruitment.TblVacancy.class);
+        Query query = em.createNativeQuery("{call sp_HRGetVacancyList}", sample.recruitment.TblVacancy.class);
         List result = query.getResultList();
         return result;
+    }
+
+    public List getHomepage(String name, String department) {
+        Query q = em.createNativeQuery("{sp_AGetVacancyByNameAndDepartment}", sample.recruitment.TblVacancy.class);
+        q.setParameter("@name", name);
+        q.setParameter("@department", name);
+        List result = q.getResultList();
+        return result;
+    }
+
+    public boolean register(String username, String password, String fullanme, boolean gender, Date birth, String phone, String email, String address) {
+        TblAccount acc = new TblAccount(username, password, false);
+        TblApplicant app = new TblApplicant(username, fullanme, birth, gender, address, phone, email,
+                "not in process", false);
+        acc.setTblApplicant(app);
+        app.setTblAccount(acc);
+        em.persist(acc);
+        return true;
+    }
+
+    public boolean applyVacancy(String degree, String skill, int experience, String vacancy
+            , String username, String applieddate, String other) {
+        String id=generateResumeID();
+        TblResume resume = new TblResume(id);
+       resume.setDegree(degree);
+       resume.setExperience(experience);
+       resume.setOthers(other);
+       resume.setSkills(skill);
+       TblApplicant app=em.find(TblApplicant.class, username);
+       TblVacancy vacancy1=em.find(TblVacancy.class, vacancy);
+       TblApplicantVacancy av=new TblApplicantVacancy();
+       av.setApplieddate(new Date(System.currentTimeMillis()));
+       av.setState("process");
+       av.setTblResume(resume);
+       av.setTblVacancy(vacancy1);
+       av.setTblApplicant(app);
+       em.persist(av);
+        return true;
+    }
+
+    public String generateResumeID() {
+        Query q = em.createNamedQuery("select count * from tblResume");
+        int temp = (Integer) q.getSingleResult()+1;
+        if (temp < 10) {
+            return "R000" + temp ;
+        } else if (temp < 100) {
+            return "R00" + temp;
+        } else if (temp < 1000) {
+            return "R0" + temp;
+        } else if (temp < 10000) {
+            return "R" + temp;
+        }
+        return null;
     }
     // Add business logic below. (Right-click in editor and choose
     // "Insert Code > Add Business Method")
