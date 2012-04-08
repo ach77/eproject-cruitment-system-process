@@ -5,6 +5,8 @@
 --%>
 
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
+<%@taglib uri="/WEB-INF/tlds/pager-taglib.tld" prefix="pg"  %>
+<%@taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
     "http://www.w3.org/TR/html4/loose.dtd">
 
@@ -12,11 +14,10 @@
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <title>Recruitment Process System</title>
-        <link href="Css/style.css" rel="stylesheet" type="text/css" />
     </head>
     <body>
         <div class="main">
-            <jsp:include page="HRHeader.jsp"/>
+            <jsp:include page="../HRGroup/HRHeader.jsp"/>
             <div class="body">
                 <div class="topi"><div class="clr"></div></div>
                 <div class="body_resize">
@@ -30,157 +31,52 @@
                                 </form>
                             </div>
                         </div>
-                        <!-- <div class="mini-product">
-                                 <div class="product-info">
-                                     <div class="product-title">Ban nha gap</div>
-                                     <div class="product-content">Ban nha mat tien.So nha 57/57 ,KP2,P.Linh Chieu,Q.ThuDuc,TP.HCM</div>
-                                     <div class="product-contact">Lien he anh Jun.SDT 01202540043</div>
-                                 </div>
-                             </div>-->
-
                         <br/>
-
-                        <table class="table" cellspacing="0" width="100%">
-                            <tr>
-                                <th width="4%"  style="-moz-border-radius-topleft:10px" scope="col">No.</th>
-                                <th width="37%"  scope="col">Vacancy name</th>
-                                <th width="18%"  scope="col">Department</th>
-                                <th width="19%"  scope="col">Salary</th>
-                                <th width="7%"  scope="col">Slot</th>
-                                <th width="15%" style="-moz-border-radius-topright:10px"  scope="col">End Date</th>
-                            </tr>
-                            <tfoot>
-                            <th colspan="6" style="text-align:right">
-
-                                <a href="#" style="color:#FFF;font-family:Tahoma, Geneva, sans-serif;font-size:12px;text-decoration:underline">First</a>
-                                <a href="#"style="color:#FFF;font-family:Tahoma, Geneva, sans-serif;font-size:12px;text-decoration:underline">Prev</a>
-                                <a href="#"style="color:#FFF;font-family:Tahoma, Geneva, sans-serif;font-size:12px;text-decoration:underline">Next</a>
-                                <a href="#"style="color:#FFF;font-family:Tahoma, Geneva, sans-serif;font-size:12px;text-decoration:underline">Last</a>
-
-                                <div style="float:right;width:300px"><p style="font-family:Tahoma, Geneva, sans-serif;font-size:12px;color:#FFF">Total : 30 items</p></div>
-                            </th>
-                            </tfoot>
-                            <tr>
-                                <td><p>1</p></td>
-                                <td> <a href="Controller?btnAction=VacancyDetail"> Management Accountant </a></td>
-                                <td><p>FMCG</p> </td>
-                                <td><p>800 - 1,000</p></td>
-                                <td><p>20</p></td>
-                                <td><p>21/03/2012</p></td>
-                            </tr>
-                            <tr class="row">
-                                <td><p>2</p></td>
-                                <td><a href="#" title="Manufacturing Manager">Manufacturing Manager </a></td>
-                                <td><p>Oil & gas </p></td>
-                                <td><p>3,500 - 6,000</p></td>
-                                <td><p>15</p></td>
-                                <td><p>19/03/2012</p> </td>
-                            </tr>
-                            <tr>
-                                <td><p>3</p></td>
-                                <td> <a href="#"> Management Accountant </a></td>
-                                <td><p>FMCG</p> </td>
-                                <td><p>800 - 1,000</p></td>
-                                <td><p>20</p></td>
-                                <td><p>21/03/2012</p></td>
-                            </tr>
-                            <tr class="row">
-                                <td><p>4</p></td>
-                                <td><a href="#" title="Manufacturing Manager">Manufacturing Manager </a></td>
-                                <td><p>Oil & gas </p></td>
-                                <td><p>3,500 - 6,000</p></td>
-                                <td><p>15</p></td>
-                                <td><p>19/03/2012</p> </td>
-                            </tr>
-                            <tr>
-                                <td><p>5</p></td>
-                                <td> <a href="#"> Management Accountant </a></td>
-                                <td><p>FMCG</p> </td>
-                                <td><p>800 - 1,000</p></td>
-                                <td><p>20</p></td>
-                                <td><p>21/03/2012</p></td>
-                            </tr>
-                            <tr class="row">
-                                <td><p>6</p></td>
-                                <td><a href="#" title="Manufacturing Manager">Manufacturing Manager </a></td>
-                                <td><p>Oil & gas </p></td>
-                                <td><p> 3,500 - 6,000 </p></td>
-                                <td><p>15</p></td>
-                                <td><p>19/03/2012</p> </td>
-                            </tr>
-                            <tr>
-                                <td><p>7</p></td>
-                                <td> <a href="#"> Management Accountant </a></td>
-                                <td><p>FMCG</p> </td>
-                                <td><p>800 - 1,000</p></td>
-                                <td><p>20</p></td>
-                                <td><p>21/03/2012</p></td>
-                            </tr>
-                            <tr class="row">
-                                <td><p>8</p></td>
-                                <td><a href="#" title="Manufacturing Manager">Manufacturing Manager </a></td>
-                                <td><p>Oil & gas </p></td>
-                                <td><p>3,500 - 6,000</p></td>
-                                <td><p>15</p></td>
-                                <td><p>19/03/2012</p> </td>
-                            </tr>
-                            <tr>
-                                <td><p>9</p></td>
-                                <td> <a href="#"> Management Accountant </a></td>
-                                <td><p>FMCG</p> </td>
-                                <td><p>800 - 1,000</p></td>
-                                <td><p>20</p></td>
-                                <td><p>21/03/2012</p></td>
-                            </tr>
-                            <tr class="row">
-                                <td><p>10</p></td>
-                                <td><a href="#" title="Manufacturing Manager">Manufacturing Manager </a></td>
-                                <td><p>Oil & gas </p></td>
-                                <td><p>3,500 - 6,000</p></td>
-                                <td><p>15</p></td>
-                                <td><p>19/03/2012</p> </td>
-                            </tr>
-                            <tr>
-                                <td><p>11</p></td>
-                                <td> <a href="#"> Management Accountant </a></td>
-                                <td><p>FMCG</p> </td>
-                                <td><p>800 - 1,000</p></td>
-                                <td><p>20</p></td>
-                                <td><p>21/03/2012</p></td>
-                            </tr>
-                            <tr class="row">
-                                <td><p>12</p></td>
-                                <td><a href="#" title="Manufacturing Manager">Manufacturing Manager </a></td>
-                                <td><p>Oil & gas </p></td>
-                                <td><p>3,500 - 6,000</p></td>
-                                <td><p>15</p></td>
-                                <td><p>19/03/2012</p> </td>
-                            </tr>
-                            <tr>
-                                <td><p>13</p></td>
-                                <td> <a href="#"> Management Accountant </a></td>
-                                <td><p>FMCG</p> </td>
-                                <td><p>800 - 1,000</p></td>
-                                <td><p>20</p></td>
-                                <td><p>21/03/2012</p></td>
-                            </tr>
-                            <tr class="row">
-                                <td><p>14</p></td>
-                                <td><a href="#" title="Manufacturing Manager">Manufacturing Manager </a></td>
-                                <td><p>Oil & gas </p></td>
-                                <td><p>3,500 - 6,000</p></td>
-                                <td><p>15</p></td>
-                                <td><p>19/03/2012</p> </td>
-                            </tr>
-                            <tr>
-                                <td><p>15</p></td>
-                                <td> <a href="#"> Management Accountant </a></td>
-                                <td><p>FMCG</p> </td>
-                                <td><p>800 - 1,000</p></td>
-                                <td><p>20</p></td>
-                                <td><p>21/03/2012</p></td>
-                            </tr>
-                        </table>
+                        <c:set var="vacancies" value="${sessionScope.INFO}"/>
+                        <c:if test="${not empty vacancies}">
+                            <pg:pager maxPageItems="3" export="currentPageNumber=pageNumber">
+                                <table class="table" cellspacing="0" width="100%">
+                                    <tr>
+                                        <th width="4%"  style="-moz-border-radius-topleft:10px" scope="col">No.</th>
+                                        <th width="37%"  scope="col">Vacancy name</th>
+                                        <th width="18%"  scope="col">Department</th>
+                                        <th width="19%"  scope="col">Salary</th>
+                                        <th width="7%"  scope="col">Slot</th>
+                                        <th width="15%" style="-moz-border-radius-topright:10px"  scope="col">End Date</th>
+                                    </tr>
+                                    <tfoot>
+                                        <c:set var="count" value="0"/>
+                                        <c:forEach var="vacancy" items="${vacancies}" >
+                                            <c:set var="count" value="${count+1}"/>
+                                            <pg:item>
+                                                <tr>
+                                                    <td><p>${count}</p></td>
+                                                    <td> <a href="Controller?btnAction=VacancyDetail">${vacancy.title}</a></td>
+                                                    <td><p>${vacancy.tblDepartment.description}</p> </td>
+                                                    <td><p>${vacancy.salary}</p></td>
+                                                    <td><p>${vacancy.slot}</p></td>
+                                                    <td><p>${vacancy.enddate}</p></td>
+                                                </tr>
+                                            </pg:item>
+                                        </c:forEach>
+                                </table>
+                                <pg:index>
+                                    <pg:prev>&nbsp;<a href="<%= pageUrl%>">[&lt;&lt; Prev]</a></pg:prev>
+                                    <pg:pages><%
+                                                if (pageNumber.intValue() < 10) {
+                                        %>&nbsp;<%                            }
+                                                    if (pageNumber == currentPageNumber) {
+                                        %><b><%= pageNumber%></b><%
+                                                                                            } else {
+                                        %><a href="<%= pageUrl%>"><%= pageNumber%></a><%
+                                                    }
+                                        %>
+                                    </pg:pages>
+                                    <pg:next>&nbsp;<a href="<%= pageUrl%>">[Next &gt;&gt;]</a></pg:next>
+                                    <br>
+                                </pg:index>
+                            </pg:pager>
+                        </c:if>
                         <div style="float:right;margin:5px 10px 20px 10px"><button class="button" >Add new vacancy</button> </div>
                     </div>
                 </div>

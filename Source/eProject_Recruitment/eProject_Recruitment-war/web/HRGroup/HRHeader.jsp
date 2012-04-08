@@ -15,20 +15,6 @@
         });
     });
 </script>
-<style type="text/css">
-    #slider { margin:0; padding:0; list-style:none; }
-    #slider ul,
-    #slider li { margin:0; padding:0; list-style:none; }
-    /*
-        Author: Tu Nhat Van
-    */
-    #slider li { width:760px; height:348px; overflow:hidden; }
-    p#controls { margin:0; position:relative; }
-    #prevBtn,#nextBtn { display:block; margin:0; overflow:hidden; width:13px; height:28px; position:absolute; left: -13px; top:-210px; }
-    #nextBtn { left:760px; }
-    #prevBtn a { display:block; width:13px; height:28px; background:url(images/l_arrow.png) no-repeat 0 0; }
-    #nextBtn a { display:block; width:13px; height:28px; background:url(images/r_arrow.png) no-repeat 0 0; }
-</style>
 
 <div class="header">
     <div class="block_header">
