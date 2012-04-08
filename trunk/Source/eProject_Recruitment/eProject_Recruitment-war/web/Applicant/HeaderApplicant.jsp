@@ -37,7 +37,7 @@
             <form>
                 <table style="font-size: 12px">
                     <tr>
-                        <td><span style="font-size:16px">Welcome,    <a href="#">tuannh</a></span></td>
+                        <td><span style="font-size:16px">Welcome,<a href="#">tuannh</a></span></td>
                         <td><a  class="button" href="#">Logout</a></td>
                     </tr>
                 </table>

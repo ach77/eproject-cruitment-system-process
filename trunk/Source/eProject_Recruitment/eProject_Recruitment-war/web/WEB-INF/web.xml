@@ -8,6 +8,10 @@
         <servlet-name>HRController</servlet-name>
         <servlet-class>HRGroupPackage.HRController</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>ApplicantController</servlet-name>
+        <servlet-class>Applicant.ApplicantController</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>Controller</servlet-name>
         <url-pattern>/Controller</url-pattern>
@@ -15,6 +19,10 @@
     <servlet-mapping>
         <servlet-name>HRController</servlet-name>
         <url-pattern>/HRController</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>ApplicantController</servlet-name>
+        <url-pattern>/ApplicantController</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>

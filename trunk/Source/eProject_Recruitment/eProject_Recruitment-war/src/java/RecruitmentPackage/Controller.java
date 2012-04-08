@@ -61,6 +61,14 @@ public class Controller extends HttpServlet {
                     /*
                      *  code lấy history
                      */
+                }else if(rs==1){
+                    url="../Applicant/ApplicantHistory.jsp";
+                             HttpSession session = request.getSession();
+                    session.setAttribute("INFO", user);
+                }else if(rs==2){
+                    url="../HRGroup/HRVacancyManagement.jsp";
+                             HttpSession session = request.getSession();
+                    session.setAttribute("INFO", user);
                 }
                 RequestDispatcher rd = request.getRequestDispatcher(url);
                 rd.forward(request, response);

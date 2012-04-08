@@ -9,23 +9,45 @@
    "http://www.w3.org/TR/html4/loose.dtd">
 
 <html>
-    <head>
+     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <title>JSP Page</title>
+        <link href="<%=request.getContextPath()%>/Css/style.css" rel="stylesheet" type="text/css" />
+        <script type="text/javascript" src="<%=request.getContextPath()%>/Js/jquery.js"></script>
+        <script type="text/javascript" src="<%=request.getContextPath()%>/Js/easySlider1.5.js"></script>
+        <script type="text/javascript" src="<%=request.getContextPath()%>/Js/popup.js"></script>
+        <script type="text/javascript" charset="utf-8">
+            $(document).ready(function(){
+                $("#slider").easySlider({
+                    controlsBefore:	'<p id="controls">',
+                    controlsAfter:	'</p>',
+                    auto: true,
+                    continuous: true
+                });
+            });
+        </script>
+        <title>Recruitment Process System</title>
     </head>
     <body>
         <div class="main">
             <jsp:include page="header.jsp"/>
-        <div class="product">
+       <div class="body">
+    <div class="topi"><div class="clr"></div></div>
+    <div class="body_resize">
+  <div class="product">
             <div class="title">Manage Account</div>
         <br/>
 
         <div class="resume">
-            <form action="Controller" method="POST">
+        	<form>
             	<table width="600px">
                 	<tr>
                     	<td>User name</td>
                         <td>hoangtuan</td>
+                    </tr>
+                    <tr>
+                    	<td>Fullname <span class="contraint">*</span></td>
+                        <td><input name="" type="text" size="30" value="Nguyen Hoang Tuan" />
+                      </td>
                     </tr>
                     <tr>
                     	<td>Password <span class="contraint">*</span></td>
@@ -69,8 +91,11 @@
                 </table>
             </form>
         </div>
+
+      </div> 
+  	</div>
+      <jsp:include page="../footer.jsp"/>
+            </div>
         </div>
-            <jsp:include page="footer.jsp"/>
-      </div>
     </body>
 </html>
