@@ -38,7 +38,7 @@
                     <div class="product">
                         <div class="title">Vacancy list
                             <div class="search">
-                                <form>
+                                <form action="HRController">
                 	Search for job:
                                     <input type="text" name="txtTitle" value="Search by vacancy"/>
                                     <a href="#" style="color:#E0EFF8;font-size:14px" > ->Search</a>
@@ -58,52 +58,64 @@
                                         <th width="7%"  scope="col">Slot</th>
                                         <th width="15%" style="-moz-border-radius-topright:10px"  scope="col">End Date</th>
                                     </tr>
-                                    <tfoot>
-                                        <c:set var="count" value="0"/>
-                                        <c:forEach var="vacancy" items="${vacancies}" >
-                                            <c:set var="count" value="${count+1}"/>
-                                            <pg:item>
-                                                <c:if test="${count%2==0}">
-                                                    <tr>
-                                                        <td><p>${count}</p></td>
-                                                        <td> <a href="Controller?btnAction=VacancyDetail">${vacancy.title}</a></td>
-                                                        <td><p>${vacancy.tblDepartment.description}</p> </td>
-                                                        <td><p>${vacancy.salary}</p></td>
-                                                        <td><p>${vacancy.slot}</p></td>
-                                                        <td><p>${vacancy.enddate}</p></td>
-                                                    </tr>
-                                                </c:if>
-                                                <c:if test="${count%2!=0}">
-                                                    <tr class="row">
-                                                        <td><p>${count}</p></td>
-                                                        <td> <a href="Controller?btnAction=VacancyDetail">${vacancy.title}</a></td>
-                                                        <td><p>${vacancy.tblDepartment.description}</p> </td>
-                                                        <td><p>${vacancy.salary}</p></td>
-                                                        <td><p>${vacancy.slot}</p></td>
-                                                        <td><p>${vacancy.enddate}</p></td>
-                                                    </tr>
-                                                </c:if>
-                                            </pg:item>
-                                        </c:forEach>
+                                    <c:set var="count" value="0"/>
+                                    <c:forEach var="vacancy" items="${vacancies}" >
+                                        <c:set var="count" value="${count+1}"/>
+                                        <pg:item>
+                                            <c:if test="${count%2==0}">
+                                                <tr>
+                                                    <td><p>${count}</p></td>
+                                                    <td> <a href="Controller?btnAction=VacancyDetail">${vacancy.title}</a></td>
+                                                    <td><p>${vacancy.tblDepartment.description}</p> </td>
+                                                    <td><p>${vacancy.salary}</p></td>
+                                                    <td><p>${vacancy.slot}</p></td>
+                                                    <td><p>${vacancy.enddate}</p></td>
+                                                </tr>
+                                            </c:if>
+                                            <c:if test="${count%2!=0}">
+                                                <tr class="row">
+                                                    <td><p>${count}</p></td>
+                                                    <td> <a href="Controller?btnAction=VacancyDetail">${vacancy.title}</a></td>
+                                                    <td><p>${vacancy.tblDepartment.description}</p> </td>
+                                                    <td><p>${vacancy.salary}</p></td>
+                                                    <td><p>${vacancy.slot}</p></td>
+                                                    <td><p>${vacancy.enddate}</p></td>
+                                                </tr>
+                                            </c:if>
+                                        </pg:item>
+                                    </c:forEach>
+                                    <tr>
+                                        <th colspan="6" style="text-align: center">
+                                            <pg:index>
+                                                <pg:first><a class="button" style="font-family:Tahoma, Geneva, sans-serif;font-size:12px;color:#FFF" href="<%= pageUrl%>">First</a></pg:first>
+                                                <pg:prev>&nbsp;<a class="button" style="font-family:Tahoma, Geneva, sans-serif;font-size:12px;color:#FFF" href="<%= pageUrl%>">Prev</a></pg:prev>
+                                                <pg:pages><%
+                                                            if (pageNumber.intValue() < 10) {
+                                                    %>&nbsp;<%                            }
+                                                                if (pageNumber == currentPageNumber) {
+                                                    %><b  style="font-family:Tahoma, Geneva, sans-serif;font-size:14px;color:#FFF;text-decoration: underline"><%= pageNumber%></b><%
+                                                                                                                    } else {
+                                                    %><a  style="font-family:Tahoma, Geneva, sans-serif;font-size:12px;color:#FFF" href="<%= pageUrl%>"><%= pageNumber%></a><%
+                                                                }
+                                                    %>
+                                                </pg:pages>
+                                                <pg:next>&nbsp;<a class="button" style="font-family:Tahoma, Geneva, sans-serif;font-size:12px;color:#FFF" href="<%= pageUrl%>">Next</a></pg:next>
+                                                <pg:last><a class="button" style="font-family:Tahoma, Geneva, sans-serif;font-size:12px;color:#FFF" href="<%= pageUrl%>">Last</a></pg:last>
+
+                                            </pg:index>
+                                            <c:set var="total" value="${0}"/>
+                                            <c:forEach var="vacancy" items="${vacancies}" >
+                                                <c:set var="total" value="${total+1}"/>
+                                            </c:forEach>
+                                            <div style="float:right"><p style="font-family:Tahoma, Geneva, sans-serif;font-size:12px;color:#FFF">Total : ${total} items</p></div>
+                                        </th>
+                                    </tr>
                                 </table>
-                                <pg:index>
-                                    <pg:prev>&nbsp;<a href="<%= pageUrl%>">[&lt;&lt; Prev]</a></pg:prev>
-                                    <pg:pages><%
-                                                if (pageNumber.intValue() < 10) {
-                                        %>&nbsp;<%                            }
-                                                    if (pageNumber == currentPageNumber) {
-                                        %><b><%= pageNumber%></b><%
-                                                                            } else {
-                                        %><a href="<%= pageUrl%>"><%= pageNumber%></a><%
-                                                    }
-                                        %>
-                                    </pg:pages>
-                                    <pg:next>&nbsp;<a href="<%= pageUrl%>">[Next &gt;&gt;]</a></pg:next>
-                                    <br>
-                                </pg:index>
                             </pg:pager>
                         </c:if>
-                        <div style="float:right;margin:5px 10px 20px 10px"><button class="button" >Add new vacancy</button> </div>
+                        <form action="HRController">
+                            <div style="float:right;margin:5px 10px 20px 10px"><button class="button" >Add new vacancy</button> </div>
+                        </form>
                     </div>
                 </div>
                 <jsp:include page="../footer.jsp"/>
