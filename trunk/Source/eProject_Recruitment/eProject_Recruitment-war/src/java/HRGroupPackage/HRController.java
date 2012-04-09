@@ -73,6 +73,14 @@ public class HRController extends HttpServlet {
                 session.setAttribute("INFO", list);
                 RequestDispatcher rd = request.getRequestDispatcher("HRGroup/HRVacancyManagement.jsp");
                 rd.forward(request, response);
+            }else if(action.equals("Add New Vacancy")){
+                Context context = new InitialContext();
+                Object obj = context.lookup("LocalReJNDI");
+                RecruitmentSessionBeanLocal local =
+                        (RecruitmentSessionBeanLocal) obj;
+                request.setAttribute("NewVacancyId", local.getFinalVacancyIdHR());
+                RequestDispatcher rd = request.getRequestDispatcher("HRGroup/HRCreateNewVacancy.jsp");
+                rd.forward(request, response);
             }
         } catch (NamingException ex) {
             Logger.getLogger(HRController.class.getName()).log(Level.SEVERE, null, ex);
