@@ -17,6 +17,8 @@
         <h1>Hello World!</h1>
         <form action="HRController" method="POST">
             <input type="submit" value="get list" name="btnAction" />
+            <input type="submit" value="get list 2" name="btnAction" />
+            <input type="submit" value="get list 3" name="btnAction" />
         </form>
     </body>
 </html>
