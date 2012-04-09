@@ -11,7 +11,7 @@ import javax.ejb.Local;
 
 /**
  *
- * @author 6789
+ * @author 6789;;
  */
 @Local
 public interface RecruitmentSessionBeanLocal {
