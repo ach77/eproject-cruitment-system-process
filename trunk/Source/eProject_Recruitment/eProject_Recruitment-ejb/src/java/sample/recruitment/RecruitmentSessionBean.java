@@ -53,7 +53,7 @@ public class RecruitmentSessionBean implements RecruitmentSessionBeanRemote, Rec
             if (!result.isEmpty()) {
                 return 2;
             }
-            return 3;
+            return 3; // interviewer
         }
     }
 
