@@ -28,6 +28,8 @@ public interface RecruitmentSessionBeanRemote {
 
     String generateResumeID();
 
+    List getApplicantListHR();
+
 
     
 }

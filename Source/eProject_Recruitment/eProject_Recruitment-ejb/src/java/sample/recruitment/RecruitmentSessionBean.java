@@ -57,11 +57,7 @@ public class RecruitmentSessionBean implements RecruitmentSessionBeanRemote, Rec
         }
     }
 
-    public List getVacancyListHR() {
-        Query query = em.createNativeQuery("{call sp_HRGetVacancyList}", sample.recruitment.TblVacancy.class);
-        List result = query.getResultList();
-        return result;
-    }
+    
 
     public List getHomepage(String name, String department) {
         Query q = em.createNativeQuery("{sp_AGetVacancyByNameAndDepartment}", sample.recruitment.TblVacancy.class);
@@ -114,6 +110,17 @@ public class RecruitmentSessionBean implements RecruitmentSessionBeanRemote, Rec
             return "R" + temp;
         }
         return null;
+    }
+    // HR Group area
+    public List getApplicantListHR() {
+        Query query = em.createNativeQuery("{call sp_HRGetApplicantList}", sample.recruitment.TblApplicantVacancy.class);
+        List result = query.getResultList();
+        return result;
+    }
+    public List getVacancyListHR() {
+        Query query = em.createNativeQuery("{call sp_HRGetVacancyList}", sample.recruitment.TblVacancy.class);
+        List result = query.getResultList();
+        return result;
     }
     // Add business logic below. (Right-click in editor and choose
     // "Insert Code > Add Business Method")
