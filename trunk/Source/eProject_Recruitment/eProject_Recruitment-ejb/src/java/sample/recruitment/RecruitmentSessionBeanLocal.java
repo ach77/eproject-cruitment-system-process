@@ -28,6 +28,8 @@ public interface RecruitmentSessionBeanLocal {
 
     String generateResumeID();
 
+    List getApplicantListHR();
+
  
 
     
