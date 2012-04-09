@@ -37,59 +37,59 @@
                 <div class="topi"><div class="clr"></div></div>
                 <div class="body_resize">
                     <div class="product">
-                        <div class="title">Vacancy list
+                        <div class="title">Applicant's list
                             <div class="search">
                                 <form action="HRController">
                 	Search for job:
-                                    <input type="text" name="txtTitle" value="Search by vacancy"/>
+                                    <input type="text" name="txtTitle" value="Search by applicant"/>
                                     <a href="#" style="color:#E0EFF8;font-size:14px" > ->Search</a>
                                 </form>
                             </div>
                         </div>
                         <br/>
-                        <c:set var="vacancies" value="${sessionScope.INFO}"/>
-                        <c:if test="${not empty vacancies}">
+                        <c:set var="applicants" value="${sessionScope.HRApplicantList}"/>
+                        <c:if test="${not empty applicants}">
                             <pg:pager maxPageItems="3" export="currentPageNumber=pageNumber">
                                 <table class="table" cellspacing="0" width="100%">
                                     <tr>
-                                        <th width="4%"  style="-moz-border-radius-topleft:10px" scope="col">No.</th>
-                                        <th width="37%"  scope="col">Applicant ID</th>
-                                        <th width="18%"  scope="col">Applicant Name</th>
-                                        <th width="19%"  scope="col">Vacancy</th>
-                                        <th width="7%"  scope="col">Apply Date</th>
-                                        <th></th>
-                                        <th width="15%" style="-moz-border-radius-topright:10px"  scope="col"></th>
+                                        <th width="4%" style="-moz-border-radius-topleft:10px;text-align: center" scope="col">No.</th>
+                                        <th width="20%"  scope="col" style="text-align: center">Applicant ID</th>
+                                        <th width="26%"  scope="col" style="text-align: center">Applicant Name</th>
+                                        <th  width="24%" scope="col" style="text-align: center">Vacancy</th>
+                                        <th width="18%" scope="col" style="text-align: center">Apply Date</th>
+                                        <th width="4%"></th>
+                                        <th width="4%" style="-moz-border-radius-topright:10px"  scope="col"></th>
                                     </tr>
                                     <c:set var="count" value="0"/>
-                                    <c:forEach var="vacancy" items="${vacancies}" >
+                                    <c:forEach var="applicant" items="${applicants}" >
                                         <c:set var="count" value="${count+1}"/>
                                         <pg:item>
                                             <c:if test="${count%2==0}">
                                                 <tr>
-                                                    <td><p>${count}</p></td>
-                                                    <td>${vacancy.tblApplicant.applicantId}</td>
-                                                    <td><p>${vacancy.tblApplicant.fullname}</p> </td>
-                                                    <td><p>${vacancy.tblVacancy.title}</p></td>
-                                                    <td><p>${vacancy.applieddate}</p></td>
-                                                    <td><p>Reject</p></td>
-                                                    <td><p>Select</p></td>
+                                                    <td><p style="text-align: center">${count}</p></td>
+                                                    <td><p style="text-align: center">${applicant.tblApplicant.applicantId}</p></td>
+                                                    <td><p style="text-align: center">${applicant.tblApplicant.fullname}</p> </td>
+                                                    <td><p style="text-align: center">${applicant.tblVacancy.title}</p></td>
+                                                    <td><p style="text-align: center">${applicant.applieddate}</p></td>
+                                                    <td><p style="text-align: center"><a href="#"> Reject</a></p></td>
+                                                    <td><p style="text-align: center"><a href="#"> Reject</a></p></td>
                                                 </tr>
                                             </c:if>
                                             <c:if test="${count%2!=0}">
                                                 <tr class="row">
-                                                    <td><p>${count}</p></td>
-                                                    <td>${vacancy.tblApplicant.applicantId}</td>
-                                                    <td><p>${vacancy.tblApplicant.fullname}</p> </td>
-                                                    <td><p>${vacancy.tblVacancy.title}</p></td>
-                                                    <td><p>${vacancy.applieddate}</p></td>
-                                                    <td><p>Reject</p></td>
-                                                    <td><p>Select</p></td>
+                                                    <td><p style="text-align: center">${count}</p></td>
+                                                    <td><p style="text-align: center">${applicant.tblApplicant.applicantId}</p></td>
+                                                    <td><p style="text-align: center">${applicant.tblApplicant.fullname}</p> </td>
+                                                    <td><p style="text-align: center">${applicant.tblVacancy.title}</p></td>
+                                                    <td><p style="text-align: center">${applicant.applieddate}</p></td>
+                                                    <td><p style="text-align: center"><a href="#"> Reject</a></p></td>
+                                                    <td><p style="text-align: center"><a href="#"> Reject</a></p></td>
                                                 </tr>
                                             </c:if>
                                         </pg:item>
                                     </c:forEach>
                                     <tr>
-                                        <th colspan="6" style="text-align: center">
+                                        <th colspan="7" style="text-align: center">
                                             <pg:index>
                                                 <pg:first><a class="button" style="font-family:Tahoma, Geneva, sans-serif;font-size:12px;color:#FFF" href="<%= pageUrl%>">First</a></pg:first>
                                                 <pg:prev>&nbsp;<a class="button" style="font-family:Tahoma, Geneva, sans-serif;font-size:12px;color:#FFF" href="<%= pageUrl%>">Prev</a></pg:prev>
@@ -108,7 +108,7 @@
 
                                             </pg:index>
                                             <c:set var="total" value="${0}"/>
-                                            <c:forEach var="vacancy" items="${vacancies}" >
+                                            <c:forEach var="applicant" items="${applicants}" >
                                                 <c:set var="total" value="${total+1}"/>
                                             </c:forEach>
                                             <div style="float:right"><p style="font-family:Tahoma, Geneva, sans-serif;font-size:12px;color:#FFF">Total : ${total} items</p></div>
@@ -118,7 +118,7 @@
                             </pg:pager>
                         </c:if>
                         <form action="HRController">
-                            <div style="float:right;margin:5px 10px 20px 10px"><button class="button" >Add new vacancy</button> </div>
+                            <div style="float:right;margin:5px 10px 20px 10px"><button class="button" >Add new applicant</button> </div>
                         </form>
                     </div>
                 </div>
