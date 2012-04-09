@@ -32,17 +32,28 @@
     <div class="block_header">
         <div class="logo"><a href="index.html"><img src="<%=request.getContextPath()%>/images/logo.jpg" width="293" height="112" border="0" alt="logo" /></a></div>
         <div class="signin">
-            <form action="Controller" method="POST">
+            <c:set var="user" value="${sessionScope.User}"/>
+            <c:if test="${not empty user}">
                 <table style="font-size:12px">
                     <tr>
-                        <td>Username</td>
-                        <td> <input type="text" name="txtUsername" style="width:100px"/> </td>
-                        <td>Password</td>
-                        <td><input type="password" name="txtPassword" style="width:100px"/></td>
-                        <td> <input type="submit" value="Login" name="btnAction" class="button" /> <a href="#">Register ?</a> </td>
+                        <td><span style="font-size:16px">Welcome,    <a href="#"> JunFKennedy</a></span></td>
+                        <td><input type="submit" value="Logout" name="btnAction" class="button" /></td>
                     </tr>
                 </table>
-            </form>
+            </c:if>
+            <c:if test="${empty user}">
+                <form action="Controller" method="POST">
+                    <table style="font-size:12px">
+                        <tr>
+                            <td>Username</td>
+                            <td> <input type="text" name="txtUsername" style="width:100px"/> </td>
+                            <td>Password</td>
+                            <td><input type="password" name="txtPassword" style="width:100px"/></td>
+                            <td> <input type="submit" value="Login" name="btnAction" class="button" /> <a href="#">Register ?</a> </td>
+                        </tr>
+                    </table>
+                </form>
+            </c:if>
         </div>
         <div class="clr"></div>
         <div id="menu">

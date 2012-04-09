@@ -12,6 +12,10 @@
         <servlet-name>ApplicantController</servlet-name>
         <servlet-class>Applicant.ApplicantController</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>InterviewerController</servlet-name>
+        <servlet-class>Interviewer.InterviewerController</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>Controller</servlet-name>
         <url-pattern>/Controller</url-pattern>
@@ -24,12 +28,16 @@
         <servlet-name>ApplicantController</servlet-name>
         <url-pattern>/ApplicantController</url-pattern>
     </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>InterviewerController</servlet-name>
+        <url-pattern>/InterviewerController</url-pattern>
+    </servlet-mapping>
     <session-config>
         <session-timeout>
             30
         </session-timeout>
     </session-config>
     <welcome-file-list>
-        <welcome-file>HRGroup/HRVacancyManagement.jsp</welcome-file>
+        <welcome-file>index.jsp</welcome-file>
     </welcome-file-list>
 </web-app>
