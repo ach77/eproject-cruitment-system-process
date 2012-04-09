@@ -1,9 +1,8 @@
-<%-- 
+<%--
     Document   : HRVacancyManagement
     Created on : Apr 6, 2012, 1:59:11 PM
     Author     : JunF
 --%>
-
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <%@taglib uri="/WEB-INF/tlds/pager-taglib.tld" prefix="pg"%>
 <%@taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
@@ -114,7 +113,7 @@
                             </pg:pager>
                         </c:if>
                         <form action="HRController">
-                            <div style="float:right;margin:5px 10px 20px 10px"><button class="button" >Add new vacancy</button> </div>
+                            <div style="float:right;margin:5px 10px 20px 10px"> <input class="button" type="submit" value="Add New Vacancy" name="btnAction" /> </div>
                         </form>
                     </div>
                 </div>
