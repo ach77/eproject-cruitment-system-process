@@ -1,4 +1,4 @@
-<%-- 
+<<%-- 
     Document   : home
     Created on : Apr 6, 2012, 9:59:15 AM
     Author     : JunF
