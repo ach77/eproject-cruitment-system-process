@@ -32,11 +32,11 @@
     <div class="block_header">
         <div class="logo"><a href="index.html"><img src="<%=request.getContextPath()%>/images/logo.jpg" width="293" height="112" border="0" alt="logo" /></a></div>
         <div class="signin">
-            <c:set var="user" value="${sessionScope.User}"/>
+            <c:set var="user" value="${sessionScope.USER}"/>
             <c:if test="${not empty user}">
                 <table style="font-size:12px">
                     <tr>
-                        <td><span style="font-size:16px">Welcome,    <a href="#"> JunFKennedy</a></span></td>
+                        <td><span style="font-size:16px">Welcome,    <a href="#"> ${user}</a></span></td>
                         <td><input type="submit" value="Logout" name="btnAction" class="button" /></td>
                     </tr>
                 </table>
