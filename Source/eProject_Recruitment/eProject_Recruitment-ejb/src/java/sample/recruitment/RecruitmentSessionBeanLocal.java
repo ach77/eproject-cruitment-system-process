@@ -30,6 +30,8 @@ public interface RecruitmentSessionBeanLocal {
 
     List getApplicantListHR();
 
+    String getFinalVacancyIdHR();
+
  
 
     
