@@ -57,8 +57,6 @@ public class RecruitmentSessionBean implements RecruitmentSessionBeanRemote, Rec
         }
     }
 
-    
-
     public List getHomepage(String name, String department) {
         Query q = em.createNativeQuery("{sp_AGetVacancyByNameAndDepartment}", sample.recruitment.TblVacancy.class);
         q.setParameter("@name", name);
@@ -77,31 +75,30 @@ public class RecruitmentSessionBean implements RecruitmentSessionBeanRemote, Rec
         return true;
     }
 
-    public boolean applyVacancy(String degree, String skill, int experience, String vacancy
-            , String username, String applieddate, String other) {
-        String id=generateResumeID();
+    public boolean applyVacancy(String degree, String skill, int experience, String vacancy, String username, String applieddate, String other) {
+        String id = generateResumeID();
         TblResume resume = new TblResume(id);
-       resume.setDegree(degree);
-       resume.setExperience(experience);
-       resume.setOthers(other);
-       resume.setSkills(skill);
-       TblApplicant app=em.find(TblApplicant.class, username);
-       TblVacancy vacancy1=em.find(TblVacancy.class, vacancy);
-       TblApplicantVacancy av=new TblApplicantVacancy();
-       av.setApplieddate(new Date(System.currentTimeMillis()));
-       av.setState("process");
-       av.setTblResume(resume);
-       av.setTblVacancy(vacancy1);
-       av.setTblApplicant(app);
-       em.persist(av);
+        resume.setDegree(degree);
+        resume.setExperience(experience);
+        resume.setOthers(other);
+        resume.setSkills(skill);
+        TblApplicant app = em.find(TblApplicant.class, username);
+        TblVacancy vacancy1 = em.find(TblVacancy.class, vacancy);
+        TblApplicantVacancy av = new TblApplicantVacancy();
+        av.setApplieddate(new Date(System.currentTimeMillis()));
+        av.setState("process");
+        av.setTblResume(resume);
+        av.setTblVacancy(vacancy1);
+        av.setTblApplicant(app);
+        em.persist(av);
         return true;
     }
 
     public String generateResumeID() {
         Query q = em.createNamedQuery("select count * from tblResume");
-        int temp = (Integer) q.getSingleResult()+1;
+        int temp = (Integer) q.getSingleResult() + 1;
         if (temp < 10) {
-            return "R000" + temp ;
+            return "R000" + temp;
         } else if (temp < 100) {
             return "R00" + temp;
         } else if (temp < 1000) {
@@ -112,11 +109,13 @@ public class RecruitmentSessionBean implements RecruitmentSessionBeanRemote, Rec
         return null;
     }
     // HR Group area
+
     public List getApplicantListHR() {
         Query query = em.createNativeQuery("{call sp_HRGetApplicantList}", sample.recruitment.TblApplicantVacancy.class);
         List result = query.getResultList();
         return result;
     }
+
     public List getVacancyListHR() {
         Query query = em.createNativeQuery("{call sp_HRGetVacancyList}", sample.recruitment.TblVacancy.class);
         List result = query.getResultList();
@@ -125,10 +124,18 @@ public class RecruitmentSessionBean implements RecruitmentSessionBeanRemote, Rec
 
     public String getFinalVacancyIdHR() {
         Query query = em.createNativeQuery("{call sp_HRGetVacancyList}");
-        System.out.println("sss"+query.getSingleResult().toString());
+        System.out.println("sss" + query.getSingleResult().toString());
         return query.getSingleResult().toString();
     }
 
+    // interviewer
+    
+    public List InterviewerGetSchedule() {
+        Query query = em.createNativeQuery("{call sp_Interviewer_getSchedule}", sample.recruitment.TblSchedule.class);
+        List result = query.getResultList();
+        return result;
+    }
+    
     // Add business logic below. (Right-click in editor and choose
     // "Insert Code > Add Business Method")
 }
