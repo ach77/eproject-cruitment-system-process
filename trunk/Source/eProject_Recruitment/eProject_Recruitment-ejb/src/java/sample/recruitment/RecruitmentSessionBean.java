@@ -33,7 +33,7 @@ public class RecruitmentSessionBean implements RecruitmentSessionBeanRemote, Rec
         Query query = em.createQuery(sql);
         query.setParameter("username", username);
         query.setParameter("password", password);
-        query.setParameter("isDelete", false);
+        query.setParameter("isDelete", "False");
         List result = query.getResultList();
         if (result.isEmpty()) {
             return 0; // sai username or password
@@ -42,13 +42,10 @@ public class RecruitmentSessionBean implements RecruitmentSessionBeanRemote, Rec
             if (rs) {
                 return 1; // la applicant
             }
-            sql = "SELECT t FROM TblEmployee t "
-                    + "WHERE t.employeeId = :employeeId AND"
-                    + " t.isDelete=:isDelete AND t.Department=:Department";
-            query = em.createQuery(sql);
-            query.setParameter("employeeId", username);
-            query.setParameter("isDelete", false);
-            query.setParameter("Department", "D0001"); // la HR
+            
+            query = em.createNativeQuery("{call sp_CheckDepartment(?,?)}", sample.recruitment.TblEmployee.class);
+            query.setParameter("@username", username);
+            query.setParameter("@Department", "D0001"); // la HR
             result = query.getResultList();
             if (!result.isEmpty()) {
                 return 2;
@@ -58,7 +55,7 @@ public class RecruitmentSessionBean implements RecruitmentSessionBeanRemote, Rec
     }
 
     public List getHomepage(String name, String department) {
-        Query q = em.createNativeQuery("{sp_AGetVacancyByNameAndDepartment}", sample.recruitment.TblVacancy.class);
+        Query q = em.createNativeQuery("{call sp_AGetVacancyByNameAndDepartment}", sample.recruitment.TblVacancy.class);
         q.setParameter("@name", name);
         q.setParameter("@department", name);
         List result = q.getResultList();
