@@ -29,7 +29,7 @@ import sample.recruitment.RecruitmentSessionBeanRemote;
 public class Controller extends HttpServlet {
 
     private String indexPage = "index.jsp";
-    private String interviewerPage = "historyInterviewer.jsp";
+    private String interviewerPage = "../Interviewer/viewHistory.jsp";
     private String invalidPage = "invalid.jsp";
 
     /** 
@@ -58,7 +58,7 @@ public class Controller extends HttpServlet {
                 if (rs == 3) {
                     url = interviewerPage;
                     HttpSession session = request.getSession();
-                    session.setAttribute("INFO", user);
+                    session.setAttribute("USER", user);
                     List result= remote.InterviewerGetSchedule();
                     request.setAttribute("ScheduleINFO", result);
                 }else if(rs==1){
