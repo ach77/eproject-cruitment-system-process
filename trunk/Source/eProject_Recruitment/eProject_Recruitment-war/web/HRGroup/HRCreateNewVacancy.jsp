@@ -3,7 +3,7 @@
     Created on : Apr 6, 2012, 1:59:36 PM
     Author     : JunF
 --%>
-
+<%@taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
     "http://www.w3.org/TR/html4/loose.dtd">
@@ -12,31 +12,36 @@
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <title>Recruitment Process System</title>
-        <link href="Css/style.css" rel="stylesheet" type="text/css" />
+        <link href="<%=request.getContextPath()%>/Css/style.css" rel="stylesheet" type="text/css" />
+        <script type="text/javascript" src="<%=request.getContextPath()%>/Js/jquery.js"></script>
+        <script type="text/javascript" src="<%=request.getContextPath()%>/Js/easySlider1.5.js"></script>
+        <script type="text/javascript" src="<%=request.getContextPath()%>/Js/popup.js"></script>
+        <script type="text/javascript" charset="utf-8">
+            $(document).ready(function(){
+                $("#slider").easySlider({
+                    controlsBefore:	'<p id="controls">',
+                    controlsAfter:	'</p>',
+                    auto: true,
+                    continuous: true
+                });
+            });
+        </script>
     </head>
     <body>
         <div class="main">
-            <jsp:include page="HRHeader.jsp"/>
+            <jsp:include page="../HRGrop/HRHeader.jsp"/>
             <div class="body">
                 <div class="topi"><div class="clr"></div></div>
                 <div class="body_resize">
                     <div class="product">
                         <div class="title">Vacancy's Detail</div>
-                        <!-- <div class="mini-product">
-                                 <div class="product-info">
-                                     <div class="product-title">Ban nha gap</div>
-                                     <div class="product-content">Ban nha mat tien.So nha 57/57 ,KP2,P.Linh Chieu,Q.ThuDuc,TP.HCM</div>
-                                     <div class="product-contact">Lien he anh Jun.SDT 01202540043</div>
-                                 </div>
-                             </div>-->
-
                         <br/>
                         <div class="resume">
-                            <form>
+                            <form action="HRController">
                                 <table width="100%" cellspacing="10px">
                                     <tr>
                                         <td width="159">Vacancy ID</td>
-                                        <td width="429">V0001</td>
+                                        <td width="429">${requestScope.NewVacancyId}</td>
                                     </tr>
                                     <tr>
                                         <td>Vacancy name <span class="contraint">*</span></td>
