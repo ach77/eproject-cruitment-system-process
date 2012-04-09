@@ -51,6 +51,28 @@ public class HRController extends HttpServlet {
                 session.setAttribute("INFO", list);
                 RequestDispatcher rd = request.getRequestDispatcher("HRGroup/HRVacancyManagement.jsp");
                 rd.forward(request, response);
+            }else if (action.equals("get list 2")) {
+                Context context = new InitialContext();
+                Object obj = context.lookup("LocalReJNDI");
+                RecruitmentSessionBeanLocal local =
+                        (RecruitmentSessionBeanLocal) obj;
+                List list = local.getApplicantListHR();
+                System.out.println("Size:" + list.size());
+                HttpSession session = request.getSession();
+                session.setAttribute("HRApplicantList", list);
+                RequestDispatcher rd = request.getRequestDispatcher("HRGroup/HRApplicantManagement.jsp");
+                rd.forward(request, response);
+            }else if (action.equals("get list 3")) {
+                Context context = new InitialContext();
+                Object obj = context.lookup("LocalReJNDI");
+                RecruitmentSessionBeanLocal local =
+                        (RecruitmentSessionBeanLocal) obj;
+                List list = local.getVacancyListHR();
+                System.out.println("Size:" + list.size());
+                HttpSession session = request.getSession();
+                session.setAttribute("INFO", list);
+                RequestDispatcher rd = request.getRequestDispatcher("HRGroup/HRVacancyManagement.jsp");
+                rd.forward(request, response);
             }
         } catch (NamingException ex) {
             Logger.getLogger(HRController.class.getName()).log(Level.SEVERE, null, ex);
