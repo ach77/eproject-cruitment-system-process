@@ -122,6 +122,13 @@ public class RecruitmentSessionBean implements RecruitmentSessionBeanRemote, Rec
         List result = query.getResultList();
         return result;
     }
+
+    public String getFinalVacancyIdHR() {
+        Query query = em.createNativeQuery("{call sp_HRGetVacancyList}");
+        System.out.println("sss"+query.getSingleResult().toString());
+        return query.getSingleResult().toString();
+    }
+
     // Add business logic below. (Right-click in editor and choose
     // "Insert Code > Add Business Method")
 }

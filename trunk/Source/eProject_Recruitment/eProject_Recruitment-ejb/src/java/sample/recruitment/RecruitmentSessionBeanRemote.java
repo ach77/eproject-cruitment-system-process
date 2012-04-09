@@ -30,6 +30,8 @@ public interface RecruitmentSessionBeanRemote {
 
     List getApplicantListHR();
 
+    String getFinalVacancyIdHR();
+
 
     
 }
