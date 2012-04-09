@@ -6,6 +6,7 @@ package RecruitmentPackage;
 
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.naming.Context;
@@ -58,9 +59,8 @@ public class Controller extends HttpServlet {
                     url = interviewerPage;
                     HttpSession session = request.getSession();
                     session.setAttribute("INFO", user);
-                    /*
-                     *  code lấy history
-                     */
+                    List result= remote.InterviewerGetSchedule();
+                    request.setAttribute("ScheduleINFO", result);
                 }else if(rs==1){
                     url="../Applicant/ApplicantHistory.jsp";
                              HttpSession session = request.getSession();
